@@ -8,6 +8,8 @@ size = Vector2(124, 119)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_786lq")
+acc = 50.0
+jump_velocity = -1000.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -0.5)
@@ -15,3 +17,12 @@ shape = SubResource("RectangleShape2D_l1w5v")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_ih734")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.5, 0.5)
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.1
+drag_top_margin = 0.1
+drag_right_margin = 0.1
+drag_bottom_margin = 0.1
