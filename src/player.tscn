@@ -20,7 +20,6 @@ shape = SubResource("CapsuleShape2D_42yxe")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
 position = Vector2(0, -10.2142)
-scale = Vector2(1, 1)
 sprite_frames = ExtResource("3_2ke40")
 animation = &"run"
 frame_progress = 0.986065

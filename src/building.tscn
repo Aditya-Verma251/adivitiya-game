@@ -1,17 +1,18 @@
 [gd_scene load_steps=3 format=3 uid="uid://dxk4oe10ae270"]
 
-[ext_resource type="Texture2D" uid="uid://5uf4v5310ota" path="res://asstes/ENVIRONMENT/props/control-box-2.png" id="1_syxq0"]
+[ext_resource type="Texture2D" uid="uid://bl2njgaitexni" path="res://asstes/ENVIRONMENT/props/banner-coke/banner-coke-1.png" id="1_54cpn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o3xhq"]
 size = Vector2(18.3653, 27)
 
 [node name="Building" type="StaticBody2D"]
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-7.99999, 4.00001)
+scale = Vector2(8.88889, 5.23077)
+texture = ExtResource("1_54cpn")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-8.36001, 0)
 scale = Vector2(12.92, 15)
 shape = SubResource("RectangleShape2D_o3xhq")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(15, 15)
-texture = ExtResource("1_syxq0")

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://d3fuj8uqm1ado" path="res://asstes/ENVIRONMENT/tileset.png" id="1_70uc6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5yamp"]
-size = Vector2(256, 38.3929)
+size = Vector2(256, 57.1429)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lracv"]
 texture = ExtResource("1_70uc6")
@@ -123,12 +123,12 @@ sources/0 = SubResource("TileSetAtlasSource_lracv")
 script = ExtResource("1_3utga")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 43)
-scale = Vector2(1, 2.24)
+position = Vector2(0, 64)
+scale = Vector2(1.52, 2.24)
 shape = SubResource("RectangleShape2D_5yamp")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="CollisionShape2D"]
-position = Vector2(0, -19.1964)
-scale = Vector2(8.16, 3.64286)
+position = Vector2(0, -28.5714)
+scale = Vector2(5.36842, 3.64286)
 tile_map_data = PackedByteArray(0, 0, 255, 255, 0, 0, 0, 0, 7, 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 11, 0, 0, 0, 1, 0, 0, 0, 0, 0, 9, 0, 11, 0, 0, 0, 254, 255, 0, 0, 0, 0, 6, 0, 11, 0, 0, 0)
 tile_set = SubResource("TileSet_1vepb")
