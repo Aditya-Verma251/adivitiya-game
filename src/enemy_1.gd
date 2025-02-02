@@ -25,6 +25,8 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 	
 
+func takeDamage(value):
+	queue_free()
 
 func _on_time_period_timeout() -> void:
 	speed = -speed

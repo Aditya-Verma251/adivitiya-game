@@ -6,6 +6,7 @@ var og
 @export var ospeed = 300.0
 @export var dashSpeed = 2000.0
 @export var max_speed = 1000.0
+@export var damageValue = 50.0
 var speed = 300.0
 var justDashed = false
 var endDash = false
@@ -17,10 +18,36 @@ static var isInputFixed = true
 var isJumping 
 var isRunning
 var isIdle
+var direction
 
 func _ready() -> void:
+	$SwordAnim.visible = false
 	$CollisionShape2D/AnimatedSprite2D.play()
+	$Sword.collision_layer = 32
+	$Sword.collision_mask = 32
 	og = g
+
+func swing():
+	if direction > 0:
+		$Sword.position.x = 100
+		$SwordAnim.flip_h = false
+		$SwordAnim.position.x = 100
+		
+	else:
+		$Sword.position.x = -100
+		$SwordAnim.flip_h = true
+		$SwordAnim.position.x = -100
+	
+	$Sword.collision_layer = 1
+	$Sword.collision_mask = 1
+	
+	$SwordAnim.visible = true
+	$SwordAnim.play()
+	$SwordTimer.start()
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("attack"):
+		swing()
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -51,7 +78,7 @@ func _physics_process(delta: float) -> void:
 	#Input.get_axis()
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("larrow", "rarrow") if isInputFixed else Input.get_axis("rarrow", "larrow")
+	direction = Input.get_axis("larrow", "rarrow") if isInputFixed else Input.get_axis("rarrow", "larrow")
 	if direction:
 		if not isJumping and not isRunning:
 			if $CollisionShape2D/AnimatedSprite2D.is_playing():
@@ -128,3 +155,20 @@ func _on_dash_timer_timeout() -> void:
 func _on_dash_time_timeout() -> void:
 	g = og
 	endDash = false# Replace with function body.
+
+
+func _on_sword_body_entered(body: Node2D) -> void:
+	if body.has_method("takeDamage"):
+		body.takeDamage(damageValue) # Replace with function body.
+	
+	if body.has_method("destroyBullet"):
+		body.destroyBullet()
+
+
+func _on_sword_timer_timeout() -> void:
+	$Sword.collision_layer = 32
+	$Sword.collision_mask = 32
+	
+	$SwordAnim.visible = false
+	if $SwordAnim.is_playing():
+		$SwordAnim.stop() # Replace with function body.
