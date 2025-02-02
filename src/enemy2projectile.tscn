@@ -18,3 +18,5 @@ script = ExtResource("1_8le2y")
 position = Vector2(-2.38419e-07, 0)
 scale = Vector2(2.80269, 2.61584)
 shape = SubResource("CircleShape2D_1lkiu")
+
+[connection signal="body_entered" from="enemy2projectile" to="." method="_on_enemy_2_projectile_body_entered"]
