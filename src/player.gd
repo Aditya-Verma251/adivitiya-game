@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var health : float = 100.0
 @export var g = Vector2(0, 98)
 @export var ospeed = 300.0
+@export var dashSpeed = 2000.0
 @export var max_speed = 1000.0
 var speed = 300.0
 @export var jt = 1.0

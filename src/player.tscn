@@ -9,10 +9,10 @@ radius = 9.01361
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_786lq")
-g = Vector2(0, 2300)
+g = Vector2(0, 3500)
 max_speed = 800.0
 acc = 50.0
-jump_velocity = -1200.0
+jump_velocity = -1900.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(3.27393, 4.69932)
@@ -26,11 +26,9 @@ texture = ExtResource("2_n47kv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
 sprite_frames = ExtResource("3_2ke40")
-frame = 3
-frame_progress = 0.841256
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.5, 0.5)
+zoom = Vector2(0.3, 0.3)
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_left_margin = 0.1
