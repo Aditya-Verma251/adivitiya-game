@@ -1,6 +1,10 @@
 extends CharacterBody2D
 
+signal damage(value : float)
+
 @export var time :float
+@export var bSpeed = 0.01
+@export var damageValue : float
 var proj = preload("res://src/enemy2projectile.tscn")
 var toShoot = false
 var player
@@ -10,7 +14,7 @@ func shoot() -> void:
 	var d : Vector2 = player.position - position
 	d.normalized()
 	projectile.setException(name)
-	projectile.move(d * 0.01)
+	projectile.move(d.normalized() * bSpeed)
 	$ProjectileContainer.add_child(projectile)
 
 func _ready() -> void:
@@ -45,3 +49,8 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.name == "Player":
 		toShoot = false 
 		
+
+
+func _on_area_2d_2_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		damage.emit(damageValue) # Replace with function body.

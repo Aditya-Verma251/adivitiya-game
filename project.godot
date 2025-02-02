@@ -15,6 +15,10 @@ run/main_scene="res://src/level_0.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/mode=2
+
 [input]
 
 ui_accept={
