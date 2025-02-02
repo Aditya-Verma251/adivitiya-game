@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dpjx6aasnjny5"]
+[gd_scene load_steps=7 format=3 uid="uid://dpjx6aasnjny5"]
 
 [ext_resource type="Script" path="res://src/level_0.gd" id="1_y8mqm"]
 [ext_resource type="PackedScene" uid="uid://dxk4oe10ae270" path="res://src/building.tscn" id="2_nlqqs"]
@@ -6,8 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://cqiyvpwmi2l68" path="res://src/player.tscn" id="4_rarc7"]
 [ext_resource type="PackedScene" uid="uid://cl23mivb2a63y" path="res://src/enemy_1.tscn" id="5_mnp3c"]
 [ext_resource type="PackedScene" uid="uid://gmid67ebwr3m" path="res://src/enemy_2.tscn" id="6_2xc67"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uqxre"]
 
 [node name="Level0" type="Node2D"]
 script = ExtResource("1_y8mqm")
@@ -21,39 +19,52 @@ position = Vector2(-528, 16)
 scale = Vector2(1.36, 1.98)
 
 [node name="Building3" parent="." instance=ExtResource("2_nlqqs")]
-position = Vector2(3080, 240)
-scale = Vector2(3.28, 0.7)
+position = Vector2(5264, 192)
+scale = Vector2(7.01479, 0.938038)
 
 [node name="Floor" parent="." instance=ExtResource("3_jgosb")]
 position = Vector2(24, 32)
 
 [node name="Floor2" parent="." instance=ExtResource("3_jgosb")]
-position = Vector2(-2423, -954)
+position = Vector2(-2416, -912)
 rotation = -1.5708
+
+[node name="Enemy1" parent="Floor2" instance=ExtResource("5_mnp3c")]
+position = Vector2(-1240.03, 9319.99)
+rotation = 1.57079
+time = 1.5
 
 [node name="Floor3" parent="." instance=ExtResource("3_jgosb")]
 position = Vector2(3448, 32)
 
 [node name="Floor4" parent="." instance=ExtResource("3_jgosb")]
-position = Vector2(6834, 0)
+position = Vector2(6896, 32)
+
+[node name="Floor5" parent="." instance=ExtResource("3_jgosb")]
+position = Vector2(10328, 32)
+
+[node name="enemy2" parent="Floor5" instance=ExtResource("6_2xc67")]
+position = Vector2(-2672, -360)
 
 [node name="Player" parent="." instance=ExtResource("4_rarc7")]
 position = Vector2(-1586, 260)
 scale = Vector2(1.08038, 1.03042)
 
-[node name="GlitchTrigger" type="Area2D" parent="."]
-position = Vector2(5854, 0)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GlitchTrigger"]
-position = Vector2(0, -641)
-scale = Vector2(7.84, 167.492)
-shape = SubResource("RectangleShape2D_uqxre")
-
-[node name="Enemy1" parent="." instance=ExtResource("5_mnp3c")]
+[node name="Enemy1 1" parent="." instance=ExtResource("5_mnp3c")]
 position = Vector2(392, 328)
 time = 3.0
 
 [node name="enemy2" parent="." instance=ExtResource("6_2xc67")]
-position = Vector2(1776, -344)
+position = Vector2(2912, -408)
 
-[connection signal="damage" from="Enemy1" to="Player" method="_on_damage"]
+[node name="Enemy1 2" parent="." instance=ExtResource("5_mnp3c")]
+position = Vector2(4696, -56)
+time = 3.0
+
+[node name="Enemy1" parent="." instance=ExtResource("5_mnp3c")]
+position = Vector2(8392, 328)
+moveRight = false
+time = 1.5
+
+[connection signal="damage" from="Enemy1 1" to="Player" method="_on_damage"]
+[connection signal="damage" from="Enemy1 2" to="Player" method="_on_damage"]
