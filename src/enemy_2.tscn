@@ -4,21 +4,23 @@
 [ext_resource type="Texture2D" uid="uid://dxkores5rgp5j" path="res://asstes/SPRITES/misc/drone/drone-3.png" id="2_ieimv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_do46h"]
-size = Vector2(29.5, 28)
+size = Vector2(89, 196.125)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jlxi1"]
-radius = 177.739
+radius = 1000.0
 
 [node name="enemy2" type="CharacterBody2D"]
-position = Vector2(1, 0)
+position = Vector2(0, -6)
 motion_mode = 1
 script = ExtResource("1_fxdrt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 6)
+scale = Vector2(5.47567, 5.60347)
 texture = ExtResource("2_ieimv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 5)
+position = Vector2(-1, 1)
 shape = SubResource("RectangleShape2D_do46h")
 
 [node name="TimePeriod" type="Timer" parent="."]
