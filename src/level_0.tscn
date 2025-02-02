@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dpjx6aasnjny5"]
+[gd_scene load_steps=8 format=3 uid="uid://dpjx6aasnjny5"]
 
 [ext_resource type="Script" path="res://src/level_0.gd" id="1_y8mqm"]
 [ext_resource type="PackedScene" uid="uid://dxk4oe10ae270" path="res://src/building.tscn" id="2_nlqqs"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cqiyvpwmi2l68" path="res://src/player.tscn" id="4_rarc7"]
 [ext_resource type="PackedScene" uid="uid://cl23mivb2a63y" path="res://src/enemy_1.tscn" id="5_mnp3c"]
 [ext_resource type="PackedScene" uid="uid://gmid67ebwr3m" path="res://src/enemy_2.tscn" id="6_2xc67"]
+[ext_resource type="PackedScene" uid="uid://dc0ibj33hrhma" path="res://src/spike.tscn" id="7_lifhd"]
 
 [node name="Level0" type="Node2D"]
 script = ExtResource("1_y8mqm")
@@ -23,38 +24,25 @@ position = Vector2(5264, 192)
 scale = Vector2(7.01479, 0.938038)
 
 [node name="Floor" parent="." instance=ExtResource("3_jgosb")]
-position = Vector2(24, 32)
-
-[node name="Floor2" parent="." instance=ExtResource("3_jgosb")]
-position = Vector2(-2416, -912)
-rotation = -1.5708
-
-[node name="Enemy1" parent="Floor2" instance=ExtResource("5_mnp3c")]
-position = Vector2(-1240.03, 9319.99)
-rotation = 1.57079
-time = 1.5
-
-[node name="Floor3" parent="." instance=ExtResource("3_jgosb")]
-position = Vector2(3448, 32)
-
-[node name="Floor4" parent="." instance=ExtResource("3_jgosb")]
-position = Vector2(6896, 32)
-
-[node name="Floor5" parent="." instance=ExtResource("3_jgosb")]
-position = Vector2(10328, 32)
-
-[node name="enemy2" parent="Floor5" instance=ExtResource("6_2xc67")]
-position = Vector2(-2672, -360)
+position = Vector2(36216, 32)
+scale = Vector2(24.48, 1)
 
 [node name="Player" parent="." instance=ExtResource("4_rarc7")]
-position = Vector2(-1586, 260)
+position = Vector2(10760, 248)
 scale = Vector2(1.08038, 1.03042)
 
 [node name="Enemy1 1" parent="." instance=ExtResource("5_mnp3c")]
 position = Vector2(392, 328)
 time = 3.0
 
-[node name="enemy2" parent="." instance=ExtResource("6_2xc67")]
+[node name="Enemy2" parent="." instance=ExtResource("5_mnp3c")]
+position = Vector2(7720, 332.996)
+time = 1.5
+
+[node name="enemy2 1" parent="." instance=ExtResource("6_2xc67")]
+position = Vector2(8480, -344)
+
+[node name="enemy2 2" parent="." instance=ExtResource("6_2xc67")]
 position = Vector2(2912, -408)
 
 [node name="Enemy1 2" parent="." instance=ExtResource("5_mnp3c")]
@@ -62,9 +50,41 @@ position = Vector2(4696, -56)
 time = 3.0
 
 [node name="Enemy1" parent="." instance=ExtResource("5_mnp3c")]
-position = Vector2(8392, 328)
+position = Vector2(9208, 333)
 moveRight = false
 time = 1.5
+
+[node name="Spike 2" parent="." instance=ExtResource("7_lifhd")]
+position = Vector2(11496, -16)
+scale = Vector2(2.56447, 9.12391)
+
+[node name="Spike 3" parent="." instance=ExtResource("7_lifhd")]
+position = Vector2(11712, -16)
+scale = Vector2(2.56447, 9.12391)
+
+[node name="Spike 4" parent="." instance=ExtResource("7_lifhd")]
+position = Vector2(11928, -16)
+scale = Vector2(2.56447, 9.12391)
+
+[node name="Spike 5" parent="." instance=ExtResource("7_lifhd")]
+position = Vector2(12144, -16)
+scale = Vector2(2.56447, 9.12391)
+
+[node name="Spike 6" parent="." instance=ExtResource("7_lifhd")]
+position = Vector2(12360, -16)
+scale = Vector2(2.56447, 9.12391)
+
+[node name="Spike 1" parent="." instance=ExtResource("7_lifhd")]
+position = Vector2(6184, 272)
+scale = Vector2(1.68, 2.64)
+
+[node name="Building4" parent="." instance=ExtResource("2_nlqqs")]
+position = Vector2(15256, 128)
+scale = Vector2(4.95892, 1.30247)
+
+[node name="Enemy3" parent="." instance=ExtResource("5_mnp3c")]
+position = Vector2(13280, 328)
+time = 2.0
 
 [connection signal="damage" from="Enemy1 1" to="Player" method="_on_damage"]
 [connection signal="damage" from="Enemy1 2" to="Player" method="_on_damage"]
