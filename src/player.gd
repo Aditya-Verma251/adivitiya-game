@@ -14,6 +14,9 @@ var endDash = false
 @export var acc = 0.0
 @export var jump_velocity = -400.0
 static var isInputFixed = true
+var isJumping 
+var isRunning
+var isIdle
 
 func _ready() -> void:
 	$CollisionShape2D/AnimatedSprite2D.play()
@@ -27,6 +30,7 @@ func _physics_process(delta: float) -> void:
 		#speed *= 0.8
 		'''jt += delta'''
 	else:
+		isJumping = false
 		pass
 		#speed /= 0.8
 		#jt = 0'''
@@ -34,6 +38,14 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor() and isInputFixed:
 		velocity.y = jump_velocity
+		isJumping = true
+		isRunning = false
+		isIdle = false
+		if $CollisionShape2D/AnimatedSprite2D.is_playing():
+			$CollisionShape2D/AnimatedSprite2D.stop()
+		
+		$CollisionShape2D/AnimatedSprite2D.animation = "jump"
+		$CollisionShape2D/AnimatedSprite2D.play()
 
 	
 	#Input.get_axis()
@@ -41,6 +53,25 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("larrow", "rarrow") if isInputFixed else Input.get_axis("rarrow", "larrow")
 	if direction:
+		if not isJumping and not isRunning:
+			if $CollisionShape2D/AnimatedSprite2D.is_playing():
+				$CollisionShape2D/AnimatedSprite2D.stop()
+			
+			if direction < 0:
+				$CollisionShape2D/AnimatedSprite2D.flip_h = true
+			elif direction > 0:
+				$CollisionShape2D/AnimatedSprite2D.flip_h = false
+			else:
+				pass
+			
+			$CollisionShape2D/AnimatedSprite2D.animation = "run"
+			$CollisionShape2D/AnimatedSprite2D.play()
+			isRunning = true
+			isIdle = false
+		else:
+			isRunning = false
+			isIdle = true
+		
 		if speed < max_speed:
 			speed += acc
 		elif endDash:
@@ -60,9 +91,16 @@ func _physics_process(delta: float) -> void:
 		
 		velocity.x = direction * speed
 
-	else:
+	elif isIdle:
+		if $CollisionShape2D/AnimatedSprite2D.is_playing():
+			$CollisionShape2D/AnimatedSprite2D.stop()
+		
+		$CollisionShape2D/AnimatedSprite2D.animation = "idle"
+		$CollisionShape2D/AnimatedSprite2D.play()
 		velocity.x = move_toward(velocity.x, 0, speed)
 		speed = 0
+	else:
+		pass
 
 	move_and_slide()
 

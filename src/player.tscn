@@ -1,11 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cqiyvpwmi2l68"]
+[gd_scene load_steps=4 format=3 uid="uid://cqiyvpwmi2l68"]
 
 [ext_resource type="Script" path="res://src/player.gd" id="1_786lq"]
-[ext_resource type="Texture2D" uid="uid://cr8h7t60y4qrt" path="res://asstes/SPRITES/player/idle/idle-1.png" id="2_n47kv"]
 [ext_resource type="SpriteFrames" uid="uid://bx3k4na7otc08" path="res://asstes/jump_anim.tres" id="3_2ke40"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_42yxe"]
-radius = 9.01361
+radius = 17.1048
+height = 51.0712
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_786lq")
@@ -18,14 +18,12 @@ jump_velocity = -1900.0
 scale = Vector2(3.27393, 4.69932)
 shape = SubResource("CapsuleShape2D_42yxe")
 
-[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
-visible = false
-position = Vector2(-2.55102, -6.63507)
-scale = Vector2(0.883258, 0.61535)
-texture = ExtResource("2_n47kv")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
+position = Vector2(0, -10.2142)
+scale = Vector2(1, 1)
 sprite_frames = ExtResource("3_2ke40")
+animation = &"run"
+frame_progress = 0.986065
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.2, 0.2)
