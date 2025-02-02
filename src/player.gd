@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var health : float
+@export var health : float = 100.0
 @export var g = Vector2(0, 98)
 @export var ospeed = 300.0
 @export var max_speed = 1000.0
@@ -8,7 +8,7 @@ var speed = 300.0
 @export var jt = 1.0
 @export var acc = 0.0
 @export var jump_velocity = -400.0
-static var isInputFixed = false
+static var isInputFixed = true
 
 func _ready() -> void:
 	$CollisionShape2D/AnimatedSprite2D.play()
@@ -53,3 +53,12 @@ func _on_main_mpu() -> void:
 	
 func _on_change_gravity(grav : Vector2) -> void:
 	g = grav
+
+func _on_damage(damage: float) -> void:
+	health -= damage
+	print("damage taken")
+	if health < 0:
+		gameOver() # Replace with function body.
+
+func gameOver() -> void:
+	pass
