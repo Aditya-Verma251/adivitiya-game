@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://dpjx6aasnjny5"]
+[gd_scene load_steps=6 format=3 uid="uid://dpjx6aasnjny5"]
 
 [ext_resource type="Script" path="res://src/level_0.gd" id="1_y8mqm"]
 [ext_resource type="PackedScene" uid="uid://dxk4oe10ae270" path="res://src/building.tscn" id="2_nlqqs"]
 [ext_resource type="PackedScene" uid="uid://b16m7yxcmaokp" path="res://src/floor.tscn" id="3_jgosb"]
 [ext_resource type="PackedScene" uid="uid://cqiyvpwmi2l68" path="res://src/player.tscn" id="4_rarc7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uqxre"]
 
 [node name="Level0" type="Node2D"]
 script = ExtResource("1_y8mqm")
@@ -16,6 +18,10 @@ scale = Vector2(1, 0.6)
 position = Vector2(-936, 160)
 scale = Vector2(1, 1.5)
 
+[node name="Building3" parent="." instance=ExtResource("2_nlqqs")]
+position = Vector2(1602, 218)
+scale = Vector2(3.28, 0.7)
+
 [node name="Floor" parent="." instance=ExtResource("3_jgosb")]
 
 [node name="Floor2" parent="." instance=ExtResource("3_jgosb")]
@@ -25,5 +31,16 @@ rotation = -1.5708
 [node name="Floor3" parent="." instance=ExtResource("3_jgosb")]
 position = Vector2(3408, 0)
 
+[node name="Floor4" parent="." instance=ExtResource("3_jgosb")]
+position = Vector2(6848, 0)
+
 [node name="Player" parent="." instance=ExtResource("4_rarc7")]
 position = Vector2(-1586, 260)
+
+[node name="GlitchTrigger" type="Area2D" parent="."]
+position = Vector2(5854, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GlitchTrigger"]
+position = Vector2(0, -641)
+scale = Vector2(7.84, 167.492)
+shape = SubResource("RectangleShape2D_uqxre")
