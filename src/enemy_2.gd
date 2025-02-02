@@ -9,7 +9,7 @@ func shoot() -> void:
 	var projectile = proj.instantiate()
 	var d : Vector2 = player.position - position
 	d.normalized()
-	projectile.apply_impulse(d * 1)
+	projectile.move(d * 0.01)
 	$ProjectileContainer.add_child(projectile)
 
 func _ready() -> void:

@@ -4,15 +4,17 @@
 [ext_resource type="Texture2D" uid="uid://n6omb4oftkqp" path="res://asstes/SPRITES/misc/shot-hit/shot-hit-1.png" id="1_el04f"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1lkiu"]
-radius = 13.1529
+radius = 1.78827
 
-[node name="enemy2projectile" type="RigidBody2D"]
-gravity_scale = 0.0
+[node name="Sprite2D" type="Sprite2D"]
+position = Vector2(4.76837e-07, -4.76837e-07)
+scale = Vector2(1.33401, 1.38123)
+texture = ExtResource("1_el04f")
 script = ExtResource("1_8le2y")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(2.80269, 2.61584)
-texture = ExtResource("1_el04f")
+[node name="enemy2projectile" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy2projectile"]
+position = Vector2(-2.38419e-07, 0)
+scale = Vector2(2.80269, 2.61584)
 shape = SubResource("CircleShape2D_1lkiu")
