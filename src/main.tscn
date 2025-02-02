@@ -1,50 +1,41 @@
-[gd_scene load_steps=4 format=3 uid="uid://dvi030eycrhhd"]
+[gd_scene load_steps=5 format=3 uid="uid://dvi030eycrhhd"]
 
 [ext_resource type="PackedScene" uid="uid://cqiyvpwmi2l68" path="res://src/player.tscn" id="1_1ti74"]
-[ext_resource type="Texture2D" uid="uid://chdr2ulwoew6s" path="res://icon.svg" id="2_3vgs7"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_iapg2"]
-size = Vector2(1443, 285)
+[ext_resource type="Script" path="res://src/main.gd" id="1_62tce"]
+[ext_resource type="Texture2D" uid="uid://0amxgk4kuxnr" path="res://asstes/ENVIRONMENT/background/skyline-a.png" id="1_ee31t"]
+[ext_resource type="PackedScene" uid="uid://b16m7yxcmaokp" path="res://src/floor.tscn" id="3_citqy"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_62tce")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(-816, 0)
+scale = Vector2(5.36, 5.36)
+texture = ExtResource("1_ee31t")
+
+[node name="Background2" type="Sprite2D" parent="."]
+position = Vector2(-131, 0)
+scale = Vector2(5.36, 5.36)
+texture = ExtResource("1_ee31t")
+
+[node name="Background3" type="Sprite2D" parent="."]
+position = Vector2(554, 0)
+scale = Vector2(5.36, 5.36)
+texture = ExtResource("1_ee31t")
+
+[node name="Background4" type="Sprite2D" parent="."]
+position = Vector2(1239, 0)
+scale = Vector2(5.36, 5.36)
+texture = ExtResource("1_ee31t")
+
+[node name="Background5" type="Sprite2D" parent="."]
+position = Vector2(-1490, 0)
+scale = Vector2(5.36, 5.36)
+texture = ExtResource("1_ee31t")
+
+[node name="Floor" parent="." instance=ExtResource("3_citqy")]
 
 [node name="Player" parent="." instance=ExtResource("1_1ti74")]
-position = Vector2(205, 112)
+scale = Vector2(1.02173, 0.851176)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(594, 726)
-scale = Vector2(6.64, 0.479999)
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-scale = Vector2(11.2188, 2.22656)
-texture = ExtResource("2_3vgs7")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1.5, 0.5)
-shape = SubResource("RectangleShape2D_iapg2")
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(-4017, 625)
-rotation = 1.6126
-scale = Vector2(6.64, 0.479999)
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
-scale = Vector2(11.2188, 2.22656)
-texture = ExtResource("2_3vgs7")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(1.5, 0.5)
-shape = SubResource("RectangleShape2D_iapg2")
-
-[node name="StaticBody2D3" type="StaticBody2D" parent="."]
-position = Vector2(5068, 441)
-rotation = 1.50714
-scale = Vector2(6.64, 0.479999)
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3"]
-scale = Vector2(11.2188, 2.22656)
-texture = ExtResource("2_3vgs7")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
-position = Vector2(1.5, 0.5)
-shape = SubResource("RectangleShape2D_iapg2")
+[connection signal="mpu" from="." to="Player" method="_on_main_mpu"]
