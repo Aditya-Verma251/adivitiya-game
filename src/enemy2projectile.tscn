@@ -8,7 +8,7 @@ radius = 1.78827
 
 [node name="Sprite2D" type="Sprite2D"]
 position = Vector2(4.76837e-07, -4.76837e-07)
-scale = Vector2(1.33401, 1.38123)
+scale = Vector2(4.13401, 4.28034)
 texture = ExtResource("1_el04f")
 script = ExtResource("1_8le2y")
 
