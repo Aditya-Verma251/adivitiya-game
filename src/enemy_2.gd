@@ -22,6 +22,10 @@ func _ready() -> void:
 	$TimePeriod.wait_time = time
 
 	
+
+func takeDamage(value):
+	queue_free()
+
 func _process(delta: float) -> void:
 	pass
 	

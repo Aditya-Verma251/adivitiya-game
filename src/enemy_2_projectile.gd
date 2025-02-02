@@ -20,6 +20,9 @@ func move(dir:Vector2):
 func setException(v):
 	e2 = v
 
+func destroyBullet():
+	queue_free()
+
 func _on_enemy_2_projectile_body_entered(body: Node2D) -> void:
 	print(e2)
 	if body.name == "Player":
