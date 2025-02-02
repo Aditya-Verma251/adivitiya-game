@@ -9,11 +9,11 @@
 [node name="Floor" parent="." instance=ExtResource("1_vefor")]
 
 [node name="Platform" parent="." instance=ExtResource("2_plhtu")]
-position = Vector2(2031, 143)
+position = Vector2(2254, -125)
 isReal = false
 
 [node name="Platform2" parent="." instance=ExtResource("2_plhtu")]
-position = Vector2(2689, 632)
+position = Vector2(2704, 232)
 
 [node name="Platform3" parent="." instance=ExtResource("2_plhtu")]
 position = Vector2(3354, 382)
