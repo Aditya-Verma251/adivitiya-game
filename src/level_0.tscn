@@ -20,82 +20,66 @@ texture = ExtResource("2_xp1cs")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Sprite2D"]
 position = Vector2(379.611, 1.07002)
-scale = Vector2(1, 1)
 texture = ExtResource("2_xp1cs")
 
 [node name="Sprite2D6" type="Sprite2D" parent="Sprite2D"]
 position = Vector2(629.919, 1.24836)
-scale = Vector2(1, 1)
 texture = ExtResource("2_xp1cs")
 
 [node name="Sprite2D8" type="Sprite2D" parent="Sprite2D"]
 position = Vector2(757.292, 1.4267)
-scale = Vector2(1, 1)
 texture = ExtResource("2_xp1cs")
 
 [node name="Sprite2D9" type="Sprite2D" parent="Sprite2D"]
 position = Vector2(885.63, 1.4267)
-scale = Vector2(1, 1)
 texture = ExtResource("2_xp1cs")
 
 [node name="Sprite2D10" type="Sprite2D" parent="Sprite2D"]
 position = Vector2(1013.58, 1.60504)
-scale = Vector2(1, 1)
 texture = ExtResource("2_xp1cs")
 
 [node name="Sprite2D11" type="Sprite2D" parent="Sprite2D"]
 position = Vector2(1140.76, 1.78337)
-scale = Vector2(1, 1)
 texture = ExtResource("2_xp1cs")
 
 [node name="Sprite2D12" type="Sprite2D" parent="Sprite2D"]
 position = Vector2(1267.75, 2.14005)
-scale = Vector2(1, 1)
 texture = ExtResource("2_xp1cs")
 
 [node name="Sprite2D13" type="Sprite2D" parent="Sprite2D"]
 position = Vector2(1396.09, 2.31839)
-scale = Vector2(1, 1)
 texture = ExtResource("2_xp1cs")
 
 [node name="Sprite2D14" type="Sprite2D" parent="Sprite2D"]
 position = Vector2(1523.85, 2.14005)
-scale = Vector2(1, 1)
 texture = ExtResource("2_xp1cs")
 
 [node name="Sprite2D15" type="Sprite2D" parent="Sprite2D"]
 position = Vector2(1652.57, 1.4267)
-scale = Vector2(1, 1)
 texture = ExtResource("2_xp1cs")
 
 [node name="Sprite2D16" type="Sprite2D" parent="Sprite2D"]
 position = Vector2(1780.72, 1.4267)
-scale = Vector2(1, 1)
 texture = ExtResource("2_xp1cs")
 
 [node name="Sprite2D17" type="Sprite2D" parent="Sprite2D"]
 position = Vector2(1908.67, 1.07002)
-scale = Vector2(1, 1)
 texture = ExtResource("2_xp1cs")
 
 [node name="Sprite2D18" type="Sprite2D" parent="Sprite2D"]
 position = Vector2(2037.2, 1.4267)
-scale = Vector2(1, 1)
 texture = ExtResource("2_xp1cs")
 
 [node name="Sprite2D5" type="Sprite2D" parent="Sprite2D"]
 position = Vector2(505.44, 1.24836)
-scale = Vector2(1, 1)
 texture = ExtResource("2_xp1cs")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Sprite2D"]
 position = Vector2(253.01, 0.71335)
-scale = Vector2(1, 1)
 texture = ExtResource("2_xp1cs")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Sprite2D"]
 position = Vector2(125.057, 0.891687)
-scale = Vector2(1, 1)
 texture = ExtResource("2_xp1cs")
 
 [node name="Floor" parent="." instance=ExtResource("3_jgosb")]
