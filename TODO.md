@@ -1,0 +1,8 @@
+- movement and animations
+- ui and cutscene
+- organise file system
+- sound effects
+- levels
+- glitches
+- enemies
+- health system
