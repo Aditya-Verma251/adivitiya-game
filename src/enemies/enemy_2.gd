@@ -5,7 +5,7 @@ signal damage(value : float)
 @export var time :float
 @export var bSpeed = 0.01
 @export var damageValue : float
-var proj = preload("res://src/enemy2projectile.tscn")
+var proj = preload("res://src/enemies/enemy2projectile.tscn")
 var toShoot = false
 var player
 

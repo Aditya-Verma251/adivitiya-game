@@ -1,14 +1,14 @@
 [gd_scene load_steps=10 format=3 uid="uid://dpjx6aasnjny5"]
 
-[ext_resource type="Script" path="res://src/level_0.gd" id="1_y8mqm"]
-[ext_resource type="PackedScene" uid="uid://dxk4oe10ae270" path="res://src/building.tscn" id="2_nlqqs"]
+[ext_resource type="Script" path="res://src/levels/level_0.gd" id="1_y8mqm"]
+[ext_resource type="PackedScene" uid="uid://dxk4oe10ae270" path="res://src/env/building.tscn" id="2_nlqqs"]
 [ext_resource type="Texture2D" uid="uid://0amxgk4kuxnr" path="res://asstes/ENVIRONMENT/background/skyline-a.png" id="2_xp1cs"]
-[ext_resource type="PackedScene" uid="uid://b16m7yxcmaokp" path="res://src/floor.tscn" id="3_jgosb"]
-[ext_resource type="PackedScene" uid="uid://j8m8jorxtuym" path="res://src/platform.tscn" id="4_guovf"]
-[ext_resource type="PackedScene" uid="uid://cqiyvpwmi2l68" path="res://src/player.tscn" id="4_rarc7"]
-[ext_resource type="PackedScene" uid="uid://cl23mivb2a63y" path="res://src/enemy_1.tscn" id="5_mnp3c"]
-[ext_resource type="PackedScene" uid="uid://gmid67ebwr3m" path="res://src/enemy_2.tscn" id="6_2xc67"]
-[ext_resource type="PackedScene" uid="uid://dc0ibj33hrhma" path="res://src/spike.tscn" id="7_lifhd"]
+[ext_resource type="PackedScene" uid="uid://b16m7yxcmaokp" path="res://src/env/floor.tscn" id="3_jgosb"]
+[ext_resource type="PackedScene" uid="uid://j8m8jorxtuym" path="res://src/env/platform.tscn" id="4_guovf"]
+[ext_resource type="PackedScene" uid="uid://cqiyvpwmi2l68" path="res://src/player/player.tscn" id="4_rarc7"]
+[ext_resource type="PackedScene" uid="uid://cl23mivb2a63y" path="res://src/enemies/enemy_1.tscn" id="5_mnp3c"]
+[ext_resource type="PackedScene" uid="uid://gmid67ebwr3m" path="res://src/enemies/enemy_2.tscn" id="6_2xc67"]
+[ext_resource type="PackedScene" uid="uid://dc0ibj33hrhma" path="res://src/env/spike.tscn" id="7_lifhd"]
 
 [node name="Level0" type="Node2D"]
 script = ExtResource("1_y8mqm")
