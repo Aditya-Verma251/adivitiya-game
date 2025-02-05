@@ -1,10 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://cqiyvpwmi2l68"]
+[gd_scene load_steps=11 format=3 uid="uid://cqiyvpwmi2l68"]
 
 [ext_resource type="Script" path="res://src/player/player.gd" id="1_786lq"]
 [ext_resource type="SpriteFrames" uid="uid://bx3k4na7otc08" path="res://asstes/jump_anim.tres" id="3_2ke40"]
 [ext_resource type="Texture2D" uid="uid://n6omb4oftkqp" path="res://asstes/SPRITES/misc/shot-hit/shot-hit-1.png" id="3_25iee"]
 [ext_resource type="Texture2D" uid="uid://dxiv1vf4w17dn" path="res://asstes/SPRITES/misc/shot-hit/shot-hit-2.png" id="4_dcf6l"]
 [ext_resource type="Texture2D" uid="uid://dhmvscoxlpp7t" path="res://asstes/SPRITES/misc/shot-hit/shot-hit-3.png" id="5_i22jg"]
+[ext_resource type="Script" path="res://src/player/center.gd" id="6_1gn0e"]
+[ext_resource type="Texture2D" uid="uid://chdr2ulwoew6s" path="res://icon.svg" id="6_2ddam"]
+[ext_resource type="Script" path="res://src/player/facing.gd" id="7_w1fsf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_42yxe"]
 radius = 17.1048
@@ -62,6 +65,8 @@ wait_time = 0.25
 one_shot = true
 
 [node name="Sword" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sword"]
 polygon = PackedVector2Array(16, -128, -32, -272, 48, -280, 136, -264, 216, -200, 232, -112, 248, -48, 224, 24, 176, 80, 104, 112, 48, 120, 8, -8)
@@ -78,7 +83,22 @@ frame_progress = 1.0
 wait_time = 0.5
 one_shot = true
 
+[node name="Center" type="Node2D" parent="."]
+script = ExtResource("6_1gn0e")
+
+[node name="Facing" type="Node2D" parent="Center"]
+position = Vector2(1, 0)
+script = ExtResource("7_w1fsf")
+
+[node name="Sprite2D" type="Sprite2D" parent="Center/Facing"]
+visible = false
+position = Vector2(200, 0)
+texture = ExtResource("6_2ddam")
+
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="DashTime" to="." method="_on_dash_time_timeout"]
+[connection signal="area_entered" from="Sword" to="." method="_on_sword_area_entered"]
 [connection signal="body_entered" from="Sword" to="." method="_on_sword_body_entered"]
 [connection signal="timeout" from="SwordTimer" to="." method="_on_sword_timer_timeout"]
+[connection signal="flip" from="Center/Facing" to="." method="_on_flip"]
+[connection signal="flip" from="Center/Facing" to="Center" method="_on_flip"]

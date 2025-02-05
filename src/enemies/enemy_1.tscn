@@ -8,6 +8,7 @@ size = Vector2(10.3761, 553.038)
 
 [node name="Enemy1" type="CharacterBody2D"]
 scale = Vector2(6.03892, 4.88335)
+collision_layer = 2
 script = ExtResource("1_3qghp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

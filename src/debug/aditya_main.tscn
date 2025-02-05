@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b33rk4lil18kc"]
+
+[ext_resource type="PackedScene" uid="uid://b16m7yxcmaokp" path="res://src/env/floor.tscn" id="1_occb1"]
+[ext_resource type="PackedScene" uid="uid://cqiyvpwmi2l68" path="res://src/player/player.tscn" id="2_qfelm"]
+
+[node name="AdityaMain" type="Node2D"]
+
+[node name="Floor" parent="." instance=ExtResource("1_occb1")]
+position = Vector2(793, 251)
+scale = Vector2(36.68, 1)
+
+[node name="Player" parent="." instance=ExtResource("2_qfelm")]
+position = Vector2(-7638, -1888)
+collision_mask = 3

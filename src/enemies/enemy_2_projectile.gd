@@ -20,13 +20,14 @@ func move(dir:Vector2):
 func setException(v):
 	e2 = v
 
-func destroyBullet():
-	queue_free()
-
 func _on_enemy_2_projectile_body_entered(body: Node2D) -> void:
-	print(e2)
+	#print(e2)
 	if body.name == "Player":
 		damage.emit(damageValue) # Replace with function body.
 
 	if body.name != e2:
 		queue_free()
+
+
+func _on_destroy() -> void:
+	queue_free() # Replace with function body.
