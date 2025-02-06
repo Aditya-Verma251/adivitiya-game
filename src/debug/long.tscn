@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqx2tuyp13w0c"]
+
+[ext_resource type="Texture2D" uid="uid://b1yebcyrrax44" path="res://asstes/ENVIRONMENT/props/banner-sushi/banner-sushi-1.png" id="1_be4n7"]
+[ext_resource type="PackedScene" uid="uid://cqiyvpwmi2l68" path="res://src/player/player.tscn" id="2_dvx1i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0568g"]
+size = Vector2(16969, 216)
+
+[node name="long" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 9000)
+scale = Vector2(12.32, 65.6286)
+collision_layer = 4
+collision_mask = 7
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+scale = Vector2(471.16, 16.6875)
+texture = ExtResource("1_be4n7")
+region_rect = Rect2(-1000, 1000, 100, 100)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_0568g")
+
+[node name="Player" parent="." instance=ExtResource("2_dvx1i")]

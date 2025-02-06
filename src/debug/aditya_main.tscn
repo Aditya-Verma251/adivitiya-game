@@ -12,18 +12,18 @@ position = Vector2(793, 251)
 scale = Vector2(36.68, 1)
 
 [node name="Player" parent="." instance=ExtResource("2_qfelm")]
-position = Vector2(-2060, -881)
+position = Vector2(-853, -102)
 health = 2313
 maxHealth = 1293
 blinks = -1597
 blinkCount = -1072
 
 [node name="Enemy1" parent="." instance=ExtResource("3_8t142")]
-position = Vector2(313, -827)
+position = Vector2(313, 47.0001)
 time = 1.0
 
 [node name="Enemy1_1" parent="." instance=ExtResource("3_8t142")]
-position = Vector2(2205, -922)
+position = Vector2(2072, 76.0001)
 moveRight = false
 time = 1.0
 health = 6
