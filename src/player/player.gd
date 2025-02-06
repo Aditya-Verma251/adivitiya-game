@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var health : float = 100.0
+@export var health : int = 4
 @export var g = Vector2(0, 98)
 var og
 @export var ospeed = 300.0
@@ -16,6 +16,7 @@ var endDash = false
 @export var jt = 1.0
 @export var acc = 0.0
 @export var jump_velocity = -400.0
+@export var knockbackDistance = 500
 static var isInputFixed = true
 var isJumping = false 
 var isRunning = false
@@ -112,6 +113,10 @@ func _on_player_damage(value : int):
 		gameOver()
 	elif health > 4:
 		health = 4
+		
+	
+	
+	print("damage taken")
 		
 	
 

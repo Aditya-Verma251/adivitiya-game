@@ -11,7 +11,7 @@ radius = 1000.0
 
 [node name="enemy2" type="CharacterBody2D"]
 position = Vector2(0, -6)
-collision_layer = 2
+collision_layer = 3
 motion_mode = 1
 script = ExtResource("1_fxdrt")
 bSpeed = 700.0

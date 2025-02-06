@@ -1,10 +1,8 @@
 extends CharacterBody2D
 
-signal damage(value : float)
-
 @export var time :float
 @export var bSpeed = 0.01
-@export var damageValue : float
+@export var damageValue : int
 var proj = preload("res://src/enemies/enemy2projectile.tscn")
 var toShoot = false
 var player
@@ -57,4 +55,4 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 
 func _on_area_2d_2_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
-		damage.emit(damageValue) # Replace with function body.
+		PlayerDamageController.playerDamage.emit(damageValue)
