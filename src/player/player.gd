@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+var rng = RandomNumberGenerator.new()
+
 @export var health : int = 3
 @export var maxHealth : int = 3
 @export var blinks : int = 3
@@ -21,13 +23,23 @@ var endDash = false
 @export var jump_velocity = -400.0
 @export var knockbackDistance = 500
 static var isInputFixed = true
+static var isPositionFixed = true
+@export var limits : Vector4
+@export var glitchTimerLimits : Vector2 #x is lower limit and y is upper limit
 var isJumping = false 
 var isRunning = false
 var isDashing = false
 var direction
 
 func _ready() -> void:
+	if glitchTimerLimits.x < 0.05:
+		glitchTimerLimits.x = 0.06
+		
+	if glitchTimerLimits.y < 0.05:
+		glitchTimerLimits.y = 0.06
+	
 	PlayerDamageController.playerDamage.connect(_on_player_damage)
+	PlayerGeneralSignalManager.glitchyPosition.connect(_on_glitchy_position)
 	$SwordAnim.visible = false
 	$CollisionShape2D/AnimatedSprite2D.animation = "idle"
 	$CollisionShape2D/AnimatedSprite2D.play()
@@ -36,6 +48,22 @@ func _ready() -> void:
 
 func getDirection():
 	return Input.get_axis("larrow", "rarrow") if isInputFixed else Input.get_axis("rarrow", "larrow")
+	
+func setGlitchyPosition():
+	if !isPositionFixed:
+		position += Vector2(rng.randf_range(limits.w, limits.x), rng.randf_range(limits.y, limits.z))
+		#w and x are -ve and +ve limits on x axis. y and z are -ve and +ve limits on y axis.
+
+func switchGlitchyPosition():
+	isPositionFixed = !isPositionFixed
+	if isPositionFixed:
+		if not $GlitchTimer.is_stopped():
+			$GlitchTimer.stop()
+	else:
+		if $GlitchTimer.is_stopped():
+			$GlitchTimer.wait_time = rng.randf_range(glitchTimerLimits.x, glitchTimerLimits.y)
+			$GlitchTimer.start()
+
 
 func swing():
 	$Sword.set_collision_layer_value(1, true)
@@ -182,3 +210,16 @@ func _on_damage_timer_timeout() -> void:
 			$CollisionShape2D/AnimatedSprite2D.visible = true
 			$DamageTimer.stop()
 			set_collision_layer_value(1, true)
+
+func _on_glitchy_position():
+	switchGlitchyPosition()
+
+func _on_glitch_timer_timeout() -> void:
+	setGlitchyPosition()
+	
+	if not $GlitchTimer.is_stopped():
+		$GlitchTimer.stop()
+	
+	if !isPositionFixed:
+		$GlitchTimer.wait_time = randf_range(glitchTimerLimits.x, glitchTimerLimits.y) 
+		$GlitchTimer.start()

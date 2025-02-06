@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cau0eb88wq5d2"]
+
+[ext_resource type="Script" path="res://src/other/player_general_signal_manager.gd" id="1_a73uw"]
+
+[node name="PlayerGeneralSignalManager" type="Node"]
+script = ExtResource("1_a73uw")
