@@ -27,6 +27,7 @@ var current_state = ["", "", "", ""]
 var prevstate = ["", ""]
 
 func _ready() -> void:
+	PlayerDamageController.playerDamage.connect(_on_player_damage)
 	$SwordAnim.visible = false
 	$CollisionShape2D/AnimatedSprite2D.animation = "run"
 	$CollisionShape2D/AnimatedSprite2D.play()
@@ -102,15 +103,17 @@ func _on_main_mpu() -> void:
 func _on_change_gravity(grav : Vector2) -> void:
 	g = grav
 
-func _on_damage(damage: float) -> void:
-	health -= damage
-	print("damage taken")
-	if health < 0:
-		gameOver() # Replace with function body.
-
 func gameOver() -> void:
 	pass
 
+func _on_player_damage(value : int):
+	health -= value
+	if health <= 0:
+		gameOver()
+	elif health > 4:
+		health = 4
+		
+	
 
 func _on_dash_timer_timeout() -> void:
 	justDashed = false # Replace with function body.
