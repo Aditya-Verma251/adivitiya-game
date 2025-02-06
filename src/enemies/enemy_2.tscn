@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://gmid67ebwr3m"]
+[gd_scene load_steps=8 format=3 uid="uid://gmid67ebwr3m"]
 
 [ext_resource type="Script" path="res://src/enemies/enemy_2.gd" id="1_fxdrt"]
 [ext_resource type="Texture2D" uid="uid://dxkores5rgp5j" path="res://asstes/SPRITES/misc/drone/drone-3.png" id="2_ieimv"]
@@ -10,11 +10,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_do46h"]
 size = Vector2(91.5, 197.063)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_jlxi1"]
-radius = 1000.0
-
 [node name="enemy2" type="CharacterBody2D"]
-position = Vector2(0, -6)
+position = Vector2(0, -16)
+scale = Vector2(0.499174, 0.499174)
 collision_layer = 2
 collision_mask = 7
 motion_mode = 1
@@ -38,9 +36,10 @@ autostart = true
 position = Vector2(0, -74)
 scale = Vector2(1.23548, 0.994872)
 
-[node name="areaofeffect" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 79.4072)
-shape = SubResource("CircleShape2D_jlxi1")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2(0, 96.5931)
+scale = Vector2(18.675, 6.3571)
+polygon = PackedVector2Array(0, 0, 155.405, 273.402, -155.405, 273.402)
 
 [node name="ProjectileContainer" type="Node2D" parent="."]
 position = Vector2(0, 20)
@@ -65,11 +64,13 @@ attenuation = 0.25
 [node name="Explosion" type="Node" parent="."]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Explosion"]
+position = Vector2(0, -10)
 stream = ExtResource("5_o7ikr")
 max_distance = 4000.0
 attenuation = 0.25
 
 [node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="Explosion"]
+position = Vector2(0, -10)
 stream = ExtResource("6_wh4fo")
 max_distance = 4000.0
 attenuation = 0.25

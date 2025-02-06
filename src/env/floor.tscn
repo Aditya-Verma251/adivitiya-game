@@ -13,6 +13,5 @@ collision_mask = 7
 shape = SubResource("RectangleShape2D_m68u3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1.54972e-06, 0.249998)
 scale = Vector2(0.103957, 0.0951449)
 texture = ExtResource("2_beu5s")
