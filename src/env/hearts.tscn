@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://21mi6067ly0b"]
+
+[ext_resource type="Script" path="res://hearts.gd" id="1_4v1wf"]
+[ext_resource type="Texture2D" uid="uid://im8m20joosl1" path="res://asstes/heart pixel art/heart pixel art/heart pixel art 64x64.png" id="2_bmyoi"]
+
+[node name="hearts" type="CanvasLayer"]
+script = ExtResource("1_4v1wf")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_right = 72.0
+offset_bottom = 64.0
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+light_mask = 2
+layout_mode = 2
+texture = ExtResource("2_bmyoi")
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_bmyoi")
+
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_bmyoi")
