@@ -1,14 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dpjx6aasnjny5"]
+[gd_scene load_steps=6 format=3 uid="uid://dpjx6aasnjny5"]
 
 [ext_resource type="Script" path="res://src/levels/level_0.gd" id="1_y8mqm"]
-[ext_resource type="PackedScene" uid="uid://dxk4oe10ae270" path="res://src/env/building.tscn" id="2_nlqqs"]
-[ext_resource type="Texture2D" uid="uid://0amxgk4kuxnr" path="res://asstes/ENVIRONMENT/background/skyline-a.png" id="2_xp1cs"]
+[ext_resource type="Texture2D" uid="uid://caukr04bgmsh3" path="res://asstes/ENVIRONMENT/background/skyline-b.png" id="2_e2f6m"]
 [ext_resource type="PackedScene" uid="uid://b16m7yxcmaokp" path="res://src/env/floor.tscn" id="3_jgosb"]
-[ext_resource type="PackedScene" uid="uid://j8m8jorxtuym" path="res://src/env/platform.tscn" id="4_guovf"]
 [ext_resource type="PackedScene" uid="uid://cqiyvpwmi2l68" path="res://src/player/player.tscn" id="4_rarc7"]
-[ext_resource type="PackedScene" uid="uid://cl23mivb2a63y" path="res://src/enemies/enemy_1.tscn" id="5_mnp3c"]
-[ext_resource type="PackedScene" uid="uid://gmid67ebwr3m" path="res://src/enemies/enemy_2.tscn" id="6_2xc67"]
-[ext_resource type="PackedScene" uid="uid://dc0ibj33hrhma" path="res://src/env/spike.tscn" id="7_lifhd"]
+[ext_resource type="PackedScene" uid="uid://dohjfmndooygs" path="res://src/env/buildings.tscn" id="5_n742p"]
 
 [node name="Level0" type="Node2D"]
 script = ExtResource("1_y8mqm")
@@ -16,187 +12,26 @@ script = ExtResource("1_y8mqm")
 [node name="Background" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Background"]
-position = Vector2(-22520, -4960)
-scale = Vector2(58.2369, 57.5152)
-texture = ExtResource("2_xp1cs")
+texture_repeat = 2
+position = Vector2(-41, -691)
+scale = Vector2(26.7734, 18.4194)
+texture = ExtResource("2_e2f6m")
+region_enabled = true
+region_rect = Rect2(-806.913, 0, 3291.88, 241.312)
 
-[node name="Sprite2D4" type="Sprite2D" parent="Background"]
-position = Vector2(-412.633, -4898.46)
-scale = Vector2(58.2369, 57.5152)
-texture = ExtResource("2_xp1cs")
-
-[node name="Sprite2D6" type="Sprite2D" parent="Background"]
-position = Vector2(14164.5, -4888.2)
-scale = Vector2(58.2369, 57.5152)
-texture = ExtResource("2_xp1cs")
-
-[node name="Sprite2D8" type="Sprite2D" parent="Background"]
-position = Vector2(21582.3, -4877.94)
-scale = Vector2(58.2369, 57.5152)
-texture = ExtResource("2_xp1cs")
-
-[node name="Sprite2D9" type="Sprite2D" parent="Background"]
-position = Vector2(29056.3, -4877.94)
-scale = Vector2(58.2369, 57.5152)
-texture = ExtResource("2_xp1cs")
-
-[node name="Sprite2D10" type="Sprite2D" parent="Background"]
-position = Vector2(36507.8, -4867.69)
-scale = Vector2(58.2369, 57.5152)
-texture = ExtResource("2_xp1cs")
-
-[node name="Sprite2D11" type="Sprite2D" parent="Background"]
-position = Vector2(43914.3, -4857.43)
-scale = Vector2(58.2369, 57.5152)
-texture = ExtResource("2_xp1cs")
-
-[node name="Sprite2D12" type="Sprite2D" parent="Background"]
-position = Vector2(51309.8, -4836.91)
-scale = Vector2(58.2369, 57.5152)
-texture = ExtResource("2_xp1cs")
-
-[node name="Sprite2D13" type="Sprite2D" parent="Background"]
-position = Vector2(58784, -4826.66)
-scale = Vector2(58.2369, 57.5152)
-texture = ExtResource("2_xp1cs")
-
-[node name="Sprite2D14" type="Sprite2D" parent="Background"]
-position = Vector2(66224.3, -4836.91)
-scale = Vector2(58.2369, 57.5152)
-texture = ExtResource("2_xp1cs")
-
-[node name="Sprite2D15" type="Sprite2D" parent="Background"]
-position = Vector2(73720.6, -4877.94)
-scale = Vector2(58.2369, 57.5152)
-texture = ExtResource("2_xp1cs")
-
-[node name="Sprite2D16" type="Sprite2D" parent="Background"]
-position = Vector2(81183.6, -4877.94)
-scale = Vector2(58.2369, 57.5152)
-texture = ExtResource("2_xp1cs")
-
-[node name="Sprite2D17" type="Sprite2D" parent="Background"]
-position = Vector2(88635, -4898.46)
-scale = Vector2(58.2369, 57.5152)
-texture = ExtResource("2_xp1cs")
-
-[node name="Sprite2D18" type="Sprite2D" parent="Background"]
-position = Vector2(96120.2, -4877.94)
-scale = Vector2(58.2369, 57.5152)
-texture = ExtResource("2_xp1cs")
-
-[node name="Sprite2D5" type="Sprite2D" parent="Background"]
-position = Vector2(6915.26, -4888.2)
-scale = Vector2(58.2369, 57.5152)
-texture = ExtResource("2_xp1cs")
-
-[node name="Sprite2D3" type="Sprite2D" parent="Background"]
-position = Vector2(-7785.48, -4918.97)
-scale = Vector2(58.2369, 57.5152)
-texture = ExtResource("2_xp1cs")
-
-[node name="Sprite2D2" type="Sprite2D" parent="Background"]
-position = Vector2(-15237.1, -4908.71)
-scale = Vector2(58.2369, 57.5152)
-texture = ExtResource("2_xp1cs")
-
-[node name="Floor" parent="." instance=ExtResource("3_jgosb")]
-position = Vector2(-1488, 532)
-
-[node name="Building" parent="." instance=ExtResource("2_nlqqs")]
-position = Vector2(-904, 200)
-scale = Vector2(-1.57719, -0.904081)
-
-[node name="Building2" parent="." instance=ExtResource("2_nlqqs")]
-position = Vector2(-528, 16)
-scale = Vector2(1.36, 1.98)
-
-[node name="Building3" parent="." instance=ExtResource("2_nlqqs")]
-position = Vector2(5264, 192)
-scale = Vector2(7.01479, 0.938038)
+[node name="Floor" parent="Background" instance=ExtResource("3_jgosb")]
+position = Vector2(-10, 1381)
 
 [node name="Player" parent="." instance=ExtResource("4_rarc7")]
-position = Vector2(-1488, 248)
+position = Vector2(-101, -41)
 scale = Vector2(1.08038, 1.03042)
 
-[node name="Enemy1 1" parent="." instance=ExtResource("5_mnp3c")]
-position = Vector2(392, 328)
-time = 3.0
+[node name="obsticles" type="Node" parent="."]
 
-[node name="Enemy2" parent="." instance=ExtResource("5_mnp3c")]
-position = Vector2(7720, 332.996)
-time = 1.5
+[node name="Buildings" parent="obsticles" instance=ExtResource("5_n742p")]
+position = Vector2(-2, 280)
+scale = Vector2(4, 2.12)
 
-[node name="enemy2 1" parent="." instance=ExtResource("6_2xc67")]
-position = Vector2(8480, -344)
-
-[node name="enemy2 2" parent="." instance=ExtResource("6_2xc67")]
-position = Vector2(2912, -408)
-
-[node name="Enemy1 2" parent="." instance=ExtResource("5_mnp3c")]
-position = Vector2(4696, -56)
-time = 3.0
-
-[node name="Enemy1" parent="." instance=ExtResource("5_mnp3c")]
-position = Vector2(9208, 333)
-moveRight = false
-time = 1.5
-
-[node name="Spike 2" parent="." instance=ExtResource("7_lifhd")]
-position = Vector2(11496, -16)
-scale = Vector2(2.56447, 9.12391)
-
-[node name="Spike 3" parent="." instance=ExtResource("7_lifhd")]
-position = Vector2(11712, -16)
-scale = Vector2(2.56447, 9.12391)
-
-[node name="Spike 4" parent="." instance=ExtResource("7_lifhd")]
-position = Vector2(11928, -16)
-scale = Vector2(2.56447, 9.12391)
-
-[node name="Spike 5" parent="." instance=ExtResource("7_lifhd")]
-position = Vector2(12144, -16)
-scale = Vector2(2.56447, 9.12391)
-
-[node name="Spike 6" parent="." instance=ExtResource("7_lifhd")]
-position = Vector2(12360, -16)
-scale = Vector2(2.56447, 9.12391)
-
-[node name="Spike 1" parent="." instance=ExtResource("7_lifhd")]
-position = Vector2(6184, 272)
-scale = Vector2(1.68, 2.64)
-
-[node name="Building4" parent="." instance=ExtResource("2_nlqqs")]
-position = Vector2(15256, 128)
-scale = Vector2(4.95892, 1.30247)
-
-[node name="Platform" parent="." instance=ExtResource("4_guovf")]
-position = Vector2(17216, -584)
-scale = Vector2(2.04002, 0.76)
-
-[node name="Platform3" parent="." instance=ExtResource("4_guovf")]
-position = Vector2(19504, -424)
-scale = Vector2(4.48002, 0.76)
-
-[node name="Platform2" parent="." instance=ExtResource("4_guovf")]
-position = Vector2(18192, -104)
-scale = Vector2(1.60002, 0.76)
-
-[node name="Building5" parent="." instance=ExtResource("2_nlqqs")]
-position = Vector2(21362.6, 23.6784)
-scale = Vector2(1.83892, 1.84335)
-
-[node name="Floor2" parent="." instance=ExtResource("3_jgosb")]
-position = Vector2(23512, 40)
-scale = Vector2(1.39892, 0.84335)
-
-[node name="Enemy3" parent="." instance=ExtResource("5_mnp3c")]
-position = Vector2(13280, 328)
-time = 2.0
-
-[node name="Enemy4" parent="." instance=ExtResource("5_mnp3c")]
-position = Vector2(18984, -472)
-time = 2.0
-
-[connection signal="damage" from="Enemy1 1" to="Player" method="_on_damage"]
-[connection signal="damage" from="Enemy1 2" to="Player" method="_on_damage"]
+[node name="Buildings2" parent="obsticles" instance=ExtResource("5_n742p")]
+position = Vector2(554, 23)
+scale = Vector2(2.08, 5.2)

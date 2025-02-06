@@ -9,9 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://chdr2ulwoew6s" path="res://icon.svg" id="6_2ddam"]
 [ext_resource type="Script" path="res://src/player/facing.gd" id="7_w1fsf"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_42yxe"]
-radius = 17.1048
-height = 51.0712
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fupsj"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0jhji"]
 animations = [{
@@ -38,11 +36,12 @@ acc = 50.0
 jump_velocity = -1900.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(3.27393, 4.69932)
-shape = SubResource("CapsuleShape2D_42yxe")
+scale = Vector2(4.91393, 10.5393)
+shape = SubResource("RectangleShape2D_fupsj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
-position = Vector2(0, -10.2142)
+position = Vector2(0, -4.55436)
+scale = Vector2(0.666255, 0.445885)
 sprite_frames = ExtResource("3_2ke40")
 animation = &"run"
 frame_progress = 0.986065
