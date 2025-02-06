@@ -17,3 +17,6 @@ func health_display(heart:int):
 
 	if heart<=1:
 		$HBoxContainer/TextureRect2.visible=false
+		
+	if heart<=0:
+		$HBoxContainer/TextureRect3.visible=false

@@ -2,13 +2,15 @@ extends CharacterBody2D
 
 @export var health : int = 3
 @export var maxHealth : int = 3
+@export var blinks : int = 3
+@export var blinkCount : int = blinks
 @export var g = Vector2(0, 98)
 var og
 @export var ospeed = 300.0
 var ospeed2 = 0.0
 @export var dashSpeed = 2000.0
 @export var max_speed = 1000.0
-@export var damageValue = 50.0
+@export var damageValue : int = 1
 var speed = 0.0
 var running_speed : float = 0.0
 var justDashed = false
@@ -27,9 +29,10 @@ var direction
 func _ready() -> void:
 	PlayerDamageController.playerDamage.connect(_on_player_damage)
 	$SwordAnim.visible = false
-	$CollisionShape2D/AnimatedSprite2D.animation = "run"
+	$CollisionShape2D/AnimatedSprite2D.animation = "idle"
 	$CollisionShape2D/AnimatedSprite2D.play()
 	og = g
+	$AudioListener2D.make_current()
 
 func getDirection():
 	return Input.get_axis("larrow", "rarrow") if isInputFixed else Input.get_axis("rarrow", "larrow")
@@ -57,12 +60,23 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	direction = getDirection()
 	if direction != 0:
+		if $CollisionShape2D/AnimatedSprite2D.animation != "run":
+			if $CollisionShape2D/AnimatedSprite2D.is_playing():
+				$CollisionShape2D/AnimatedSprite2D.stop()
+			$CollisionShape2D/AnimatedSprite2D.animation = "run"
+			$CollisionShape2D/AnimatedSprite2D.play()
+			
 		$Center.flipped = direction < 0
 		speed += acc
 		isRunning = true
 		if speed > max_speed and not isDashing:
 			speed = max_speed
 	elif not isDashing:
+			if $CollisionShape2D/AnimatedSprite2D.animation != "idle":
+				if $CollisionShape2D/AnimatedSprite2D.is_playing():
+					$CollisionShape2D/AnimatedSprite2D.stop()
+				$CollisionShape2D/AnimatedSprite2D.animation = "idle"
+				$CollisionShape2D/AnimatedSprite2D.play()
 			isRunning = false
 			speed = 0
 			
@@ -98,10 +112,14 @@ func _on_change_gravity(grav : Vector2) -> void:
 	g = grav
 
 func gameOver() -> void:
-	pass
+	get_tree().change_scene_to_file("res://src/player/DeathScreen.tscn")
 
 func _on_player_damage(value : int):
 	health -= value
+	set_collision_layer_value(1, false)
+	$CollisionShape2D/AnimatedSprite2D.visible = false
+	$DamageTimer.start()
+	
 	if health <= 0:
 		gameOver()
 	elif health > maxHealth:
@@ -111,6 +129,7 @@ func _on_player_damage(value : int):
 	$hearts.health_display(health)
 	
 	print("damage taken")
+	print(value)
 		
 	
 
@@ -146,3 +165,20 @@ func _on_sword_area_entered(area: Area2D) -> void:
 	if area.has_method("destroyBullet"):
 		print(area)
 		area.destroyBullet() # Replace with function body.
+
+
+func _on_damage_timer_timeout() -> void:
+	$CollisionShape2D/AnimatedSprite2D.visible = not $CollisionShape2D/AnimatedSprite2D.visible
+	if not $CollisionShape2D/AnimatedSprite2D.visible:
+		blinkCount -= 1
+		print(blinkCount, "	<-bl		h->	", health)
+	
+	if blinkCount <= 0:
+		if health <= 0:
+			$DamageTimer.stop()
+			gameOver()
+		else:
+			blinkCount = blinks
+			$CollisionShape2D/AnimatedSprite2D.visible = true
+			$DamageTimer.stop()
+			set_collision_layer_value(1, true)

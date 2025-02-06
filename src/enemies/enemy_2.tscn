@@ -1,21 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://gmid67ebwr3m"]
+[gd_scene load_steps=9 format=3 uid="uid://gmid67ebwr3m"]
 
 [ext_resource type="Script" path="res://src/enemies/enemy_2.gd" id="1_fxdrt"]
 [ext_resource type="Texture2D" uid="uid://dxkores5rgp5j" path="res://asstes/SPRITES/misc/drone/drone-3.png" id="2_ieimv"]
+[ext_resource type="PackedScene" uid="uid://dkwok76eo8dvf" path="res://src/enemies/enemy_explosion.tscn" id="3_60iay"]
+[ext_resource type="AudioStream" uid="uid://m40vn70f8pbx" path="res://asstes/sounds/laser-104024.mp3" id="4_i1spm"]
+[ext_resource type="AudioStream" uid="uid://8x0ogvr375oj" path="res://asstes/sounds/boom2.wav" id="5_o7ikr"]
+[ext_resource type="AudioStream" uid="uid://cridwjxr7pour" path="res://asstes/sounds/boom12.wav" id="6_wh4fo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_do46h"]
-size = Vector2(89, 196.125)
+size = Vector2(91.5, 197.063)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jlxi1"]
 radius = 1000.0
 
 [node name="enemy2" type="CharacterBody2D"]
 position = Vector2(0, -6)
-collision_layer = 3
+collision_layer = 2
+collision_mask = 7
 motion_mode = 1
 script = ExtResource("1_fxdrt")
 bSpeed = 700.0
-damageValue = 40.0
+damageValue = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 6)
@@ -43,10 +48,35 @@ position = Vector2(0, 20)
 [node name="Area2D2" type="Area2D" parent="."]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2(-1, 1)
+position = Vector2(0.25, 1.46875)
 shape = SubResource("RectangleShape2D_do46h")
+
+[node name="EnemyExplosion" parent="." instance=ExtResource("3_60iay")]
+scale = Vector2(3.24, 3.24)
+
+[node name="DamageTime" type="Timer" parent="."]
+wait_time = 0.2
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_i1spm")
+max_distance = 4000.0
+attenuation = 0.25
+
+[node name="Explosion" type="Node" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Explosion"]
+stream = ExtResource("5_o7ikr")
+max_distance = 4000.0
+attenuation = 0.25
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="Explosion"]
+stream = ExtResource("6_wh4fo")
+max_distance = 4000.0
+attenuation = 0.25
 
 [connection signal="timeout" from="TimePeriod" to="." method="_on_time_period_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]
+[connection signal="animation_finished" from="EnemyExplosion" to="." method="_on_enemy_explosion"]
+[connection signal="timeout" from="DamageTime" to="." method="_on_damage_time_timeout"]
