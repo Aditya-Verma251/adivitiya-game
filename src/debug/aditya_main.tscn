@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://b33rk4lil18kc"]
+[gd_scene load_steps=5 format=3 uid="uid://b33rk4lil18kc"]
 
 [ext_resource type="PackedScene" uid="uid://b16m7yxcmaokp" path="res://src/env/floor.tscn" id="1_occb1"]
 [ext_resource type="PackedScene" uid="uid://cqiyvpwmi2l68" path="res://src/player/player.tscn" id="2_qfelm"]
+[ext_resource type="PackedScene" uid="uid://cl23mivb2a63y" path="res://src/enemies/enemy_1.tscn" id="3_8t142"]
+[ext_resource type="PackedScene" uid="uid://gmid67ebwr3m" path="res://src/enemies/enemy_2.tscn" id="4_v5rc5"]
 
 [node name="AdityaMain" type="Node2D"]
 
@@ -10,5 +12,19 @@ position = Vector2(793, 251)
 scale = Vector2(36.68, 1)
 
 [node name="Player" parent="." instance=ExtResource("2_qfelm")]
-position = Vector2(-7638, -1888)
-collision_mask = 3
+position = Vector2(-2060, -881)
+health = 2313
+
+[node name="Enemy1" parent="." instance=ExtResource("3_8t142")]
+position = Vector2(313, -827)
+time = 1.0
+
+[node name="Enemy1_1" parent="." instance=ExtResource("3_8t142")]
+position = Vector2(2205, -922)
+moveRight = false
+time = 1.0
+health = 6
+
+[node name="enemy2" parent="." instance=ExtResource("4_v5rc5")]
+position = Vector2(-8274, -1667)
+scale = Vector2(3.03892, 2.45741)

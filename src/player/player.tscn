@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://src/player/center.gd" id="6_1gn0e"]
 [ext_resource type="Texture2D" uid="uid://chdr2ulwoew6s" path="res://icon.svg" id="6_2ddam"]
 [ext_resource type="Script" path="res://src/player/facing.gd" id="7_w1fsf"]
-[ext_resource type="PackedScene" uid="uid://21mi6067ly0b" path="res://src/env/hearts.tscn" id="9_hwjwy"]
+[ext_resource type="PackedScene" uid="uid://21mi6067ly0b" path="res://src/player/hearts.tscn" id="9_hwjwy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fupsj"]
 
@@ -30,11 +30,14 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D"]
+collision_mask = 6
 script = ExtResource("1_786lq")
+blinkCount = 3
 g = Vector2(0, 3500)
 max_speed = 800.0
 acc = 50.0
 jump_velocity = -1900.0
+knockbackDistance = 200
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(4.91393, 10.5393)
@@ -99,6 +102,9 @@ texture = ExtResource("6_2ddam")
 
 [node name="hearts" parent="." instance=ExtResource("9_hwjwy")]
 
+[node name="DamageTimer" type="Timer" parent="."]
+wait_time = 0.2
+
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="DashTime" to="." method="_on_dash_time_timeout"]
 [connection signal="area_entered" from="Sword" to="." method="_on_sword_area_entered"]
@@ -106,3 +112,4 @@ texture = ExtResource("6_2ddam")
 [connection signal="timeout" from="SwordTimer" to="." method="_on_sword_timer_timeout"]
 [connection signal="flip" from="Center/Facing" to="." method="_on_flip"]
 [connection signal="flip" from="Center/Facing" to="Center" method="_on_flip"]
+[connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]

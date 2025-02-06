@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+@export var health : int = 1
+@export var blinks : int = 3
+@export var blinkCount : int = blinks
 @export var time :float
 @export var bSpeed = 0.01
 @export var damageValue : int
@@ -16,13 +19,21 @@ func shoot() -> void:
 	$ProjectileContainer.add_child(projectile)
 
 func _ready() -> void:
+	$EnemyExplosion.visible = false
 	$TimePeriod.one_shot = false
-	$TimePeriod.wait_time = time
+	if time > 0.05:
+		$TimePeriod.wait_time = time
 
 	
 
 func takeDamage(value):
-	queue_free()
+	health -= value
+	set_collision_layer_value(2, false)
+	set_collision_mask_value(1, false)
+	set_collision_mask_value(2, false)
+	$Sprite2D.visible = false
+	blinkCount -= 1
+	$DamageTime.start()
 
 func _process(delta: float) -> void:
 	pass
@@ -56,3 +67,29 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 func _on_area_2d_2_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		PlayerDamageController.playerDamage.emit(damageValue)
+
+func die():
+	$Sprite2D.visible = false
+	$EnemyExplosion.visible = true
+	$EnemyExplosion.play()
+	#queue_free()
+
+func _on_damage_time_timeout() -> void:
+	$Sprite2D.visible = not $Sprite2D.visible
+	if not $Sprite2D.visible:
+		blinkCount -= 1
+	
+	if blinkCount <= 0:
+		if health <= 0:
+			die()
+		else:
+			blinkCount = blinks
+			$Sprite2D.visible = true
+			$DamageTime.stop()
+			set_collision_layer_value(2, true)
+			set_collision_mask_value(1, true)
+			set_collision_mask_value(2, true)
+
+
+func _on_enemy_explosion() -> void:
+	queue_free()

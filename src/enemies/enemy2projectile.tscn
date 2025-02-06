@@ -12,9 +12,11 @@ position = Vector2(4.76837e-07, -4.76837e-07)
 scale = Vector2(4.13401, 4.28034)
 texture = ExtResource("1_el04f")
 script = ExtResource("1_8le2y")
+damageValue = 1
 
 [node name="enemy2projectile" type="Area2D" parent="."]
 collision_layer = 2
+collision_mask = 7
 script = ExtResource("3_vhvb3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemy2projectile"]
