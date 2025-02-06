@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmnukss4p383e"]
+
+[ext_resource type="Script" path="res://src/other/instant_quit.gd" id="1_i2cae"]
+
+[node name="InstantQuit" type="Node"]
+script = ExtResource("1_i2cae")

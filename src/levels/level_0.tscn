@@ -101,8 +101,7 @@ scale = Vector2(58.2369, 57.5152)
 texture = ExtResource("2_xp1cs")
 
 [node name="Floor" parent="." instance=ExtResource("3_jgosb")]
-position = Vector2(6776, 32)
-scale = Vector2(5.28, 1)
+position = Vector2(-1488, 532)
 
 [node name="Building" parent="." instance=ExtResource("2_nlqqs")]
 position = Vector2(-904, 200)
