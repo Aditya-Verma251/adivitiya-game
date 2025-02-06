@@ -11,9 +11,16 @@ config_version=5
 [application]
 
 config/name="adivitiya-game"
-run/main_scene="res://src/level_0.tscn"
+run/main_scene="res://src/levels/title_screen.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GlobalVariables="*res://src/other/global_variables.gd"
+InstantQuit="*res://src/other/instant_quit.tscn"
+PlayerDamageController="*res://src/other/player_damage_controller.gd"
+PlayerGeneralSignalManager="*res://src/other/player_general_signal_manager.gd"
 
 [display]
 
@@ -95,6 +102,13 @@ dash={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Enemies"
+2d_physics/layer_3="Env"
+
 [rendering]
 
 renderer/rendering_method="mobile"
+anti_aliasing/screen_space_roughness_limiter/enabled=false

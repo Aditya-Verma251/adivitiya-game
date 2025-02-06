@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://dg4h1vtcw02f3"]
+
+[node name="PlayerDamageController" type="Node"]

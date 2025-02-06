@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://elwvn6ks4jf8"]
+
+[ext_resource type="Script" path="res://src/enemies/enemy_2_projectile.gd" id="1_8le2y"]
+[ext_resource type="Texture2D" uid="uid://baxkx6to22mnm" path="res://asstes/enemy_laser.png" id="1_j0w5p"]
+[ext_resource type="Script" path="res://src/enemies/enemy_2_projectile_area.gd" id="3_vhvb3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7qwbk"]
+radius = 10.0863
+height = 93.3982
+
+[node name="Sprite2D" type="Sprite2D"]
+position = Vector2(4.76837e-07, -4.76837e-07)
+scale = Vector2(0.25, 0.259)
+texture = ExtResource("1_j0w5p")
+script = ExtResource("1_8le2y")
+damageValue = 1
+
+[node name="enemy2projectile" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 7
+script = ExtResource("3_vhvb3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy2projectile"]
+position = Vector2(-2.38419e-07, 0)
+rotation = 1.5708
+scale = Vector2(2.80269, 2.61584)
+shape = SubResource("CapsuleShape2D_7qwbk")
+
+[connection signal="body_entered" from="enemy2projectile" to="." method="_on_enemy_2_projectile_body_entered"]
+[connection signal="destroy" from="enemy2projectile" to="." method="_on_destroy"]

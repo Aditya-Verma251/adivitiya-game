@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvi030eycrhhd"]
+
+[ext_resource type="PackedScene" uid="uid://cqiyvpwmi2l68" path="res://src/player/player.tscn" id="1_1ti74"]
+[ext_resource type="Script" path="res://src/debug/main.gd" id="1_62tce"]
+[ext_resource type="Texture2D" uid="uid://0amxgk4kuxnr" path="res://asstes/ENVIRONMENT/background/skyline-a.png" id="1_ee31t"]
+[ext_resource type="PackedScene" uid="uid://b16m7yxcmaokp" path="res://src/env/floor.tscn" id="3_citqy"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_62tce")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(-816, 0)
+scale = Vector2(5.36, 5.36)
+texture = ExtResource("1_ee31t")
+
+[node name="Background2" type="Sprite2D" parent="."]
+position = Vector2(-131, 0)
+scale = Vector2(5.36, 5.36)
+texture = ExtResource("1_ee31t")
+
+[node name="Background3" type="Sprite2D" parent="."]
+position = Vector2(554, 0)
+scale = Vector2(5.36, 5.36)
+texture = ExtResource("1_ee31t")
+
+[node name="Background4" type="Sprite2D" parent="."]
+position = Vector2(1239, 0)
+scale = Vector2(5.36, 5.36)
+texture = ExtResource("1_ee31t")
+
+[node name="Background5" type="Sprite2D" parent="."]
+position = Vector2(-1490, 0)
+scale = Vector2(5.36, 5.36)
+texture = ExtResource("1_ee31t")
+
+[node name="Floor" parent="." instance=ExtResource("3_citqy")]
+
+[node name="Player" parent="." instance=ExtResource("1_1ti74")]
+scale = Vector2(1.02173, 0.851176)
+
+[connection signal="mpu" from="." to="Player" method="_on_main_mpu"]
