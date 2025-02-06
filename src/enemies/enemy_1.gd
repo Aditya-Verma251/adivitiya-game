@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+var rng = RandomNumberGenerator.new()
+
 @export var damageValue : int = 1
 @export var speed = 400.0
 @export var moveRight = true
@@ -48,6 +50,10 @@ func die():
 	$Sprite2D.visible = false
 	$AnimatedSprite2D.visible = true
 	$AnimatedSprite2D.play()
+	if rng.randi() % 2 == 0:
+		$Explosion/AudioStreamPlayer2D.play()
+	else:
+		$Explosion/AudioStreamPlayer2D2.play()
 	#queue_free()
 
 func _on_damage_time_timeout() -> void:

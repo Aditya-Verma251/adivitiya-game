@@ -9,14 +9,17 @@ extends CharacterBody2D
 var proj = preload("res://src/enemies/enemy2projectile.tscn")
 var toShoot = false
 var player
+var rng = RandomNumberGenerator.new()
 
 func shoot() -> void:
 	var projectile = proj.instantiate()
 	var d : Vector2 = player.position - position
+	projectile.rotation = acos(d.normalized().x)
 	d.normalized()
 	projectile.setException(name)
 	projectile.move(d.normalized() * bSpeed)
 	$ProjectileContainer.add_child(projectile)
+	$AudioStreamPlayer2D.play()
 
 func _ready() -> void:
 	$EnemyExplosion.visible = false
@@ -71,6 +74,13 @@ func _on_area_2d_2_body_entered(body: Node2D) -> void:
 func die():
 	$Sprite2D.visible = false
 	$EnemyExplosion.visible = true
+	if $AudioStreamPlayer2D.playing:
+		$AudioStreamPlayer2D.stop()
+		
+	if rng.randi() % 2 == 0:
+		$Explosion/AudioStreamPlayer2D.play()
+	else:
+		$Explosion/AudioStreamPlayer2D2.play()
 	$EnemyExplosion.play()
 	#queue_free()
 

@@ -14,6 +14,9 @@ scale = Vector2(36.68, 1)
 [node name="Player" parent="." instance=ExtResource("2_qfelm")]
 position = Vector2(-2060, -881)
 health = 2313
+maxHealth = 1293
+blinks = -1597
+blinkCount = -1072
 
 [node name="Enemy1" parent="." instance=ExtResource("3_8t142")]
 position = Vector2(313, -827)

@@ -29,9 +29,10 @@ var direction
 func _ready() -> void:
 	PlayerDamageController.playerDamage.connect(_on_player_damage)
 	$SwordAnim.visible = false
-	$CollisionShape2D/AnimatedSprite2D.animation = "run"
+	$CollisionShape2D/AnimatedSprite2D.animation = "idle"
 	$CollisionShape2D/AnimatedSprite2D.play()
 	og = g
+	$AudioListener2D.make_current()
 
 func getDirection():
 	return Input.get_axis("larrow", "rarrow") if isInputFixed else Input.get_axis("rarrow", "larrow")
@@ -59,12 +60,23 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	direction = getDirection()
 	if direction != 0:
+		if $CollisionShape2D/AnimatedSprite2D.animation != "run":
+			if $CollisionShape2D/AnimatedSprite2D.is_playing():
+				$CollisionShape2D/AnimatedSprite2D.stop()
+			$CollisionShape2D/AnimatedSprite2D.animation = "run"
+			$CollisionShape2D/AnimatedSprite2D.play()
+			
 		$Center.flipped = direction < 0
 		speed += acc
 		isRunning = true
 		if speed > max_speed and not isDashing:
 			speed = max_speed
 	elif not isDashing:
+			if $CollisionShape2D/AnimatedSprite2D.animation != "idle":
+				if $CollisionShape2D/AnimatedSprite2D.is_playing():
+					$CollisionShape2D/AnimatedSprite2D.stop()
+				$CollisionShape2D/AnimatedSprite2D.animation = "idle"
+				$CollisionShape2D/AnimatedSprite2D.play()
 			isRunning = false
 			speed = 0
 			
