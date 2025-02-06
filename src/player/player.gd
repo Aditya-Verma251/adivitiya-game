@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
-@export var health : int = 4
+@export var health : int = 3
+@export var maxHealth : int = 3
 @export var g = Vector2(0, 98)
 var og
 @export var ospeed = 300.0
@@ -23,10 +24,6 @@ var isRunning = false
 var isDashing = false
 var direction
 
-var states = ["", "running", "jumping", "dashing", "changed"]
-var current_state = ["", "", "", ""]
-var prevstate = ["", ""]
-
 func _ready() -> void:
 	PlayerDamageController.playerDamage.connect(_on_player_damage)
 	$SwordAnim.visible = false
@@ -37,9 +34,6 @@ func _ready() -> void:
 func getDirection():
 	return Input.get_axis("larrow", "rarrow") if isInputFixed else Input.get_axis("rarrow", "larrow")
 
-func animHandler(s):
-	pass
-
 func swing():
 	$Sword.set_collision_layer_value(1, true)
 	$Sword.set_collision_mask_value(2, true)
@@ -48,7 +42,6 @@ func swing():
 	$SwordTimer.start()
 
 func _process(_delta: float) -> void:
-	animHandler(current_state)
 	if Input.is_action_just_pressed("attack"):
 		swing()
 
@@ -111,10 +104,11 @@ func _on_player_damage(value : int):
 	health -= value
 	if health <= 0:
 		gameOver()
-	elif health > 4:
-		health = 4
+	elif health > maxHealth:
+		health = maxHealth
 		
-	
+	position.x += (knockbackDistance * (-1 * ($Center/Facing.position.x)))
+	$hearts.health_display(health)
 	
 	print("damage taken")
 		

@@ -7,7 +7,7 @@
 [node name="main" type="Node2D"]
 
 [node name="Floor" parent="." instance=ExtResource("1_xkjan")]
-position = Vector2(254, 297)
+position = Vector2(1261, 2283)
 
 [node name="enemy2" parent="." instance=ExtResource("2_2k0ht")]
 position = Vector2(1538, 161)
@@ -19,3 +19,8 @@ scale = Vector2(4.2, 4.2)
 
 [node name="Player" parent="." instance=ExtResource("3_ok5sd")]
 position = Vector2(-1153, 538)
+ospeed = 300.0
+dashSpeed = 2000.0
+damageValue = 50.0
+jt = 1.0
+knockbackDistance = 500
