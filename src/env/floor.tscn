@@ -2,20 +2,15 @@
 
 [ext_resource type="Texture2D" uid="uid://bjrhtko427owc" path="res://asstes/Untitled.png" id="2_beu5s"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1rm11"]
-size = Vector2(181.311, 64.3663)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m68u3"]
+size = Vector2(135, 121.5)
 
 [node name="Floor" type="StaticBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2.99982, 0)
-scale = Vector2(160.28, 28.6)
-shape = SubResource("RectangleShape2D_1rm11")
+shape = SubResource("RectangleShape2D_m68u3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture_repeat = 2
-position = Vector2(18.9999, 6.10352e-05)
-scale = Vector2(4.5433, 1.4633)
+position = Vector2(1.54972e-06, 0.249998)
+scale = Vector2(0.103957, 0.0951449)
 texture = ExtResource("2_beu5s")
-region_enabled = true
-region_rect = Rect2(-9786.7, 15.5039, 20791.8, 1267.66)

@@ -19,8 +19,3 @@ scale = Vector2(4.2, 4.2)
 
 [node name="Player" parent="." instance=ExtResource("3_ok5sd")]
 position = Vector2(-1153, 538)
-ospeed = 300.0
-dashSpeed = 2000.0
-damageValue = 50.0
-jt = 1.0
-knockbackDistance = 500
