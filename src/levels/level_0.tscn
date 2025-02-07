@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://gmid67ebwr3m" path="res://src/enemies/enemy_2.tscn" id="9_157uj"]
 [ext_resource type="Script" path="res://src/env/cutscenetrigger.gd" id="10_wc54g"]
 [ext_resource type="PackedScene" uid="uid://wah387jlafnn" path="res://src/other/l_0_cutscene.tscn" id="11_eeoac"]
-[ext_resource type="PackedScene" uid="uid://dngjr7iffqlpq" path="res://src/env/checkpoint.tscn" id="12_bei8a"]
+[ext_resource type="PackedScene" path="res://src/env/checkpoint.tscn" id="12_bei8a"]
 [ext_resource type="PackedScene" uid="uid://bq0rdkpcq2em6" path="res://src/env/deathplane.tscn" id="13_ytdlm"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_68tb5"]
