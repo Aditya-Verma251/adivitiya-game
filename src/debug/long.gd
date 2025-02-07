@@ -1,5 +1,10 @@
 extends Node2D
 
+func  _ready() -> void:
+	$Player/Camera2D.limit_bottom = 9999999
+	$Player/Camera2D.limit_top = -9999999
+	$Player/Camera2D.limit_left = -9999999
+	$Player/Camera2D.limit_right = 9999999
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
