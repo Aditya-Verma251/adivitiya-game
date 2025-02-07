@@ -13,3 +13,8 @@ func _on_glitch_trigger_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		glitchCutscene()
 	pass # Replace with function body.
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		$cutscenetrigger/L0Cutscene.levelZeroCutscene() # Replace with function body.
