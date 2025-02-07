@@ -2,7 +2,7 @@ extends Node
 
 func levelZeroCutscene():
 	GlobalVariables.isPaused = true
-	var script = ["Oh no, oh no, oh no… why is it doing that?", "Okay, okay, deep breath. Let’s fix this… probably.", "Try completing the obstecle course to\n figure out what is going on. \n help "]
+	var script = ["ummmm \n it seems you are movement is gliching", "i will have to fix that ;^;", "Try completing the level so i get to known\n what's wrong \n help "]
 	$TextBox.displayText(script)
 	PlayerGeneralSignalManager.glitchyPosition.emit()
 	await  $TextBox.textDisplayed
