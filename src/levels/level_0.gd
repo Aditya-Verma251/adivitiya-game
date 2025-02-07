@@ -7,6 +7,7 @@ func glitchCutscene() -> void:
 
 func _ready() -> void:
 	player = preload("res://src/player/player.tscn")
+	CheckPointHolder.checkpoint = $Player.position
 	
 
 func _on_glitch_trigger_body_entered(body: Node2D) -> void:

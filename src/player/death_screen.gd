@@ -12,4 +12,5 @@ func _process(delta: float) -> void:
 
 
 func _on_button_button_up() -> void:
-	get_tree().change_scene_to_file("res://src/levels/title_screen.tscn") 
+	get_tree().change_scene_to_file("res://src/levels/level_0.tscn")
+	PlayerGeneralSignalManager.teleport.emit(CheckPointHolder.checkpoint)

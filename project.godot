@@ -21,6 +21,7 @@ GlobalVariables="*res://src/other/global_variables.gd"
 InstantQuit="*res://src/other/instant_quit.tscn"
 PlayerDamageController="*res://src/other/player_damage_controller.gd"
 PlayerGeneralSignalManager="*res://src/other/player_general_signal_manager.gd"
+CheckPointHolder="*res://src/other/check_point_holder.gd"
 
 [display]
 
