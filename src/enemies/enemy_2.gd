@@ -36,7 +36,10 @@ func takeDamage(value):
 	set_collision_mask_value(2, false)
 	$Sprite2D.visible = false
 	blinkCount -= 1
-	$DamageTime.start()
+	if health <= 0:
+		die()
+	else:
+		$DamageTime.start()
 
 func _process(delta: float) -> void:
 	pass

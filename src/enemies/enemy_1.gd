@@ -34,9 +34,15 @@ func takeDamage(value):
 	set_collision_layer_value(2, false)
 	set_collision_mask_value(1, false)
 	set_collision_mask_value(2, false)
+	$Area2D.set_collision_layer_value(2, false)
+	$Area2D.set_collision_mask_value(1, false)
+	$Area2D.set_collision_mask_value(2, false)
 	$Sprite2D.visible = false
 	blinkCount -= 1
-	$DamageTime.start()
+	if health <= 0:
+		die()
+	else:
+		$DamageTime.start()
 
 func _on_time_period_timeout() -> void:
 	speed = -speed
@@ -71,6 +77,8 @@ func _on_damage_time_timeout() -> void:
 			set_collision_layer_value(2, true)
 			set_collision_mask_value(1, true)
 			set_collision_mask_value(2, true)
+			$Area2D.set_collision_layer_value(2, true)
+			$Area2D.set_collision_mask_value(1, true)
 
 
 func _on_animation_finished() -> void:

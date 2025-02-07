@@ -1,4 +1,4 @@
-extends Control
+extends Node2D
 
 
 # Called when the node enters the scene tree for the first time.
@@ -11,7 +11,6 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_button_button_up() -> void:
-	get_tree().change_scene_to_file("res://src/levels/level_0.tscn")
-	PlayerGeneralSignalManager.teleport.emit(CheckPointHolder.getCheckpoint())
-	print("emit")
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.name=="Player":
+		PlayerDamageController.playerDamage.emit(10)

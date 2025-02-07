@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=3 uid="uid://bl4dsh3y14uoo"]
+
+[ext_resource type="Script" path="res://src/ui_gen/text_box.gd" id="1_jdw48"]
+[ext_resource type="Script" path="res://src/ui_gen/dialogue_text.gd" id="2_odvxa"]
+[ext_resource type="Script" path="res://src/ui_gen/player_final_accept_handler.gd" id="3_0ymw5"]
+
+[sub_resource type="Theme" id="Theme_g2vpa"]
+default_font_size = 24
+/font_sizes/FOnts = 28
+
+[node name="TextBox" type="CanvasLayer"]
+script = ExtResource("1_jdw48")
+
+[node name="TextBoxContainer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LowerHalf" type="Control" parent="TextBoxContainer"]
+layout_direction = 2
+layout_mode = 1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="TextBoxContainer/LowerHalf"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.45
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+color = Color(0.184314, 0.184314, 0.184314, 0.686275)
+
+[node name="MarginContainer" type="MarginContainer" parent="TextBoxContainer/LowerHalf/ColorRect"]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Control" type="Control" parent="TextBoxContainer/LowerHalf/ColorRect/MarginContainer"]
+layout_mode = 2
+
+[node name="DialogueText" type="RichTextLabel" parent="TextBoxContainer/LowerHalf/ColorRect/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_g2vpa")
+bbcode_enabled = true
+script = ExtResource("2_odvxa")
+animationSpeed = 30.0
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="PlayerFinalAcceptHandler" type="Node" parent="."]
+script = ExtResource("3_0ymw5")

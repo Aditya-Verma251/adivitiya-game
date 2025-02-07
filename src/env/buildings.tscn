@@ -1,9 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dohjfmndooygs"]
+[gd_scene load_steps=2 format=3 uid="uid://dohjfmndooygs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7cjm5"]
 size = Vector2(178, 165)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_tgm0o"]
 
 [node name="Buildings" type="StaticBody2D"]
 collision_layer = 4
@@ -14,5 +12,3 @@ position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_7cjm5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(181.75, 167)
-texture = SubResource("PlaceholderTexture2D_tgm0o")

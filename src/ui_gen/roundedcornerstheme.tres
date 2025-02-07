@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://b3evb8o0mv5ns"]
+
+[ext_resource type="StyleBox" uid="uid://dhardjs3g3pvb" path="res://src/ui_gen/rounded_corners1.tres" id="1_5mbbn"]
+
+[resource]
+/styles/Eeeeeeeeeee = ExtResource("1_5mbbn")
