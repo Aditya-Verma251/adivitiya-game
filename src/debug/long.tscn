@@ -1,12 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://bqx2tuyp13w0c"]
+[gd_scene load_steps=7 format=3 uid="uid://bqx2tuyp13w0c"]
 
 [ext_resource type="Texture2D" uid="uid://b1yebcyrrax44" path="res://asstes/ENVIRONMENT/props/banner-sushi/banner-sushi-1.png" id="1_be4n7"]
+[ext_resource type="Script" path="res://src/debug/long.gd" id="1_x1oad"]
 [ext_resource type="PackedScene" uid="uid://cqiyvpwmi2l68" path="res://src/player/player.tscn" id="2_dvx1i"]
+[ext_resource type="PackedScene" uid="uid://bl4dsh3y14uoo" path="res://src/ui_gen/text_box.tscn" id="4_rdr3n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0568g"]
 size = Vector2(16969, 216)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dxe81"]
+size = Vector2(5736, 3401)
+
 [node name="long" type="Node2D"]
+script = ExtResource("1_x1oad")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(0, 9000)
@@ -23,3 +29,15 @@ region_rect = Rect2(-1000, 1000, 100, 100)
 shape = SubResource("RectangleShape2D_0568g")
 
 [node name="Player" parent="." instance=ExtResource("2_dvx1i")]
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(3882, 700)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(0.680001, 1)
+shape = SubResource("RectangleShape2D_dxe81")
+
+[node name="TextBox" parent="." instance=ExtResource("4_rdr3n")]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
