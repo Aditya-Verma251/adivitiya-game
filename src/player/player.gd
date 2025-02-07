@@ -40,6 +40,7 @@ func _ready() -> void:
 	
 	PlayerDamageController.playerDamage.connect(_on_player_damage)
 	PlayerGeneralSignalManager.glitchyPosition.connect(_on_glitchy_position)
+	PlayerGeneralSignalManager.teleport.connect(_on_teleport)
 	$SwordAnim.visible = false
 	$CollisionShape2D/AnimatedSprite2D.animation = "idle"
 	$CollisionShape2D/AnimatedSprite2D.play()
@@ -226,3 +227,6 @@ func _on_glitch_timer_timeout() -> void:
 	if !isPositionFixed:
 		$GlitchTimer.wait_time = randf_range(glitchTimerLimits.x, glitchTimerLimits.y) 
 		$GlitchTimer.start()
+
+func _on_teleport(pos : Vector2):
+	position = pos
