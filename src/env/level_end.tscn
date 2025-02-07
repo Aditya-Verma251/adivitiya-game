@@ -8,6 +8,7 @@
 script = ExtResource("1_p8e00")
 
 [node name="EndArea" type="Area2D" parent="."]
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EndArea"]
 scale = Vector2(1, 51.28)

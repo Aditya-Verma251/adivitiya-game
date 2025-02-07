@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://dpjx6aasnjny5"]
+[gd_scene load_steps=23 format=4 uid="uid://dpjx6aasnjny5"]
 
 [ext_resource type="Script" path="res://src/levels/level_0.gd" id="1_y8mqm"]
 [ext_resource type="Texture2D" uid="uid://caukr04bgmsh3" path="res://asstes/ENVIRONMENT/background/skyline-b.png" id="2_e2f6m"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cl23mivb2a63y" path="res://src/enemies/enemy_1.tscn" id="8_t4ix5"]
 [ext_resource type="PackedScene" uid="uid://gmid67ebwr3m" path="res://src/enemies/enemy_2.tscn" id="9_157uj"]
 [ext_resource type="Script" path="res://src/env/cutscenetrigger.gd" id="10_wc54g"]
+[ext_resource type="PackedScene" uid="uid://dx4d58apuq1x0" path="res://src/env/level_end.tscn" id="11_e4524"]
 [ext_resource type="PackedScene" uid="uid://wah387jlafnn" path="res://src/other/l_0_cutscene.tscn" id="11_eeoac"]
 [ext_resource type="PackedScene" uid="uid://dngjr7iffqlpq" path="res://src/env/checkpoint.tscn" id="12_bei8a"]
 [ext_resource type="PackedScene" uid="uid://bq0rdkpcq2em6" path="res://src/env/deathplane.tscn" id="13_ytdlm"]
@@ -65,7 +66,6 @@ region_rect = Rect2(-806.913, 0, 3291.88, 241.312)
 [node name="Buildings" parent="obsticles" instance=ExtResource("5_n742p")]
 position = Vector2(63, 300)
 scale = Vector2(4, 2.12)
-sprite = ExtResource("4_etoj7")
 
 [node name="Sprite2D2" type="Sprite2D" parent="obsticles/Buildings"]
 position = Vector2(0.375, 2.12264)
@@ -75,7 +75,6 @@ texture = ExtResource("5_rsgkv")
 [node name="Buildings2" parent="obsticles" instance=ExtResource("5_n742p")]
 position = Vector2(619, 42)
 scale = Vector2(2.08, 5.2)
-sprite = ExtResource("5_rsgkv")
 
 [node name="Sprite2D2" type="Sprite2D" parent="obsticles/Buildings2"]
 position = Vector2(1.20192, -0.288471)
@@ -149,9 +148,11 @@ time = 3.0
 
 [node name="enemy5" parent="enemy" instance=ExtResource("9_157uj")]
 position = Vector2(21352, -728.186)
+time = 3.0
 
 [node name="enemy2" parent="enemy" instance=ExtResource("9_157uj")]
 position = Vector2(9424, -208)
+time = 1.0
 
 [node name="Enemy4" parent="enemy" instance=ExtResource("8_t4ix5")]
 position = Vector2(13992, 416)
@@ -197,5 +198,9 @@ position = Vector2(11945, 224)
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAD8/xMAAAAAAAAAAQD5/xMAAAAAAAAAAQD6/xMAAAAAAAAAAQD3/xMAAAAAAAAAAQD1/xMAAAAAAAAAAQD9/xMAAAAAAAAAAQD//xMAAAAAAAAAAQABABMAAAAAAAAAAQADABMAAAAAAAAAAQAFABMAAAAAAAAAAQAIABMAAAAAAAAAAQAGABMAAAAAAAAAAQALABMAAAAAAAAAAQAJABMAAAAAAAAAAQANABMAAAAAAAAAAQAOABMAAAAAAAAAAQAPABMAAAAAAAAAAQAQABMAAAAAAAAAAQARABMAAAAAAAAAAQASABMAAAAAAAAAAQATABMAAAAAAAAAAQAUABMAAAAAAAAAAQAUABQAAAAAAAAAAQAVABQAAAAAAAAAAQAWABQAAAAAAAAAAQAWABMAAAAAAAAAAQAXABMAAAAAAAAAAQAYABMAAAAAAAAAAQAZABMAAAAAAAAAAQAaABMAAAAAAAAAAQAbABMAAAAAAAAAAQAcABMAAAAAAAAAAQAcABQAAAAAAAAAAQAdABMAAAAAAAAAAQAeABMAAAAAAAAAAQAfABMAAAAAAAAAAQAgABMAAAAAAAAAAQAhABMAAAAAAAAAAQAiABMAAAAAAAAAAQAjABMAAAAAAAAAAQAjABQAAAAAAAAAAQAkABQAAAAAAAAAAQAlABQAAAAAAAAAAQAlABMAAAAAAAAAAQAmABMAAAAAAAAAAQAnABMAAAAAAAAAAQAoABMAAAAAAAAAAQAoABQAAAAAAAAAAQApABQAAAAAAAAAAQAqABQAAAAAAAAAAQAqABMAAAAAAAAAAQAsABMAAAAAAAAAAQAtABMAAAAAAAAAAQAuABMAAAAAAAAAAQAvABMAAAAAAAAAAQAwABMAAAAAAAAAAQAxABMAAAAAAAAAAQAyABMAAAAAAAAAAQAzABMAAAAAAAAAAQBIAAwAAAAAAAAAAQBIAAsAAAAAAAAAAQBJAAsAAAAAAAAAAQBKAAsAAAAAAAAAAQBKAAwAAAAAAAAAAQBKAA0AAAAAAAAAAQBLAA0AAAAAAAAAAQBMAA0AAAAAAAAAAQBMAAwAAAAAAAAAAQBMAAsAAAAAAAAAAQA=")
 tile_set = SubResource("TileSet_qbydq")
+
+[node name="LevelEnd" parent="." instance=ExtResource("11_e4524")]
+position = Vector2(22352, -502)
+scale = Vector2(12.4389, 4.88335)
 
 [connection signal="body_entered" from="cutscenetrigger/Area2D" to="." method="_on_area_2d_body_entered"]
