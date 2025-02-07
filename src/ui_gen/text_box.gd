@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+signal textDisplayed
+
 func _ready() -> void:
 	$TextBoxContainer.visible = false
 
@@ -16,3 +18,4 @@ func  displayText(text):
 	$PlayerFinalAcceptHandler.listen()
 	await $PlayerFinalAcceptHandler.playerFinalAccept
 	$TextBoxContainer.visible = false
+	textDisplayed.emit()
