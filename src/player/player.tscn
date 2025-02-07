@@ -38,8 +38,8 @@ max_speed = 800.0
 acc = 50.0
 jump_velocity = -1900.0
 knockbackDistance = 200
-limits = Vector4(-1000, 0, -2000, 1000)
-glitchTimerLimits = Vector2(2, 4)
+limits = Vector4(-200, 0, -200, 200)
+glitchTimerLimits = Vector2(1, 1.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(4.91393, 10.5393)

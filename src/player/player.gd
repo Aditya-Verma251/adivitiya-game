@@ -23,7 +23,7 @@ var endDash = false
 @export var jump_velocity = -400.0
 @export var knockbackDistance = 500
 static var isInputFixed = true
-static var isPositionFixed = true
+static var isPositionFixed = GlobalVariables.isPositionFixed
 @export var limits : Vector4
 @export var glitchTimerLimits : Vector2 #x is lower limit and y is upper limit
 var isJumping = false 
@@ -46,6 +46,13 @@ func _ready() -> void:
 	$CollisionShape2D/AnimatedSprite2D.play()
 	og = g
 	$AudioListener2D.make_current()
+	if isPositionFixed:
+		if not $GlitchTimer.is_stopped():
+			$GlitchTimer.stop()
+	else:
+		if $GlitchTimer.is_stopped():
+			$GlitchTimer.wait_time = rng.randf_range(glitchTimerLimits.x, glitchTimerLimits.y)
+			$GlitchTimer.start()
 
 func getDirection():
 	return Input.get_axis("larrow", "rarrow") if isInputFixed else Input.get_axis("rarrow", "larrow")
@@ -57,6 +64,7 @@ func setGlitchyPosition():
 
 func switchGlitchyPosition():
 	isPositionFixed = !isPositionFixed
+	GlobalVariables.isPositionFixed = !GlobalVariables.isPositionFixed
 	if isPositionFixed:
 		if not $GlitchTimer.is_stopped():
 			$GlitchTimer.stop()
@@ -229,4 +237,5 @@ func _on_glitch_timer_timeout() -> void:
 		$GlitchTimer.start()
 
 func _on_teleport(pos : Vector2):
+	print(pos, "teleport")
 	position = pos
