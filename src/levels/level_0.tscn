@@ -1,9 +1,8 @@
-[gd_scene load_steps=21 format=4 uid="uid://dpjx6aasnjny5"]
+[gd_scene load_steps=20 format=4 uid="uid://dpjx6aasnjny5"]
 
 [ext_resource type="Script" path="res://src/levels/level_0.gd" id="1_y8mqm"]
 [ext_resource type="Texture2D" uid="uid://caukr04bgmsh3" path="res://asstes/ENVIRONMENT/background/skyline-b.png" id="2_e2f6m"]
 [ext_resource type="PackedScene" uid="uid://b16m7yxcmaokp" path="res://src/env/floor.tscn" id="3_jgosb"]
-[ext_resource type="PackedScene" uid="uid://cqiyvpwmi2l68" path="res://src/player/player.tscn" id="4_rarc7"]
 [ext_resource type="PackedScene" uid="uid://j8m8jorxtuym" path="res://src/env/platform.tscn" id="5_1qltc"]
 [ext_resource type="PackedScene" uid="uid://dohjfmndooygs" path="res://src/env/buildings.tscn" id="5_n742p"]
 [ext_resource type="PackedScene" uid="uid://dc0ibj33hrhma" path="res://src/env/spike.tscn" id="6_okk26"]
@@ -58,10 +57,6 @@ scale = Vector2(26.7734, 18.4194)
 texture = ExtResource("2_e2f6m")
 region_enabled = true
 region_rect = Rect2(-806.913, 0, 3291.88, 241.312)
-
-[node name="Player" parent="." instance=ExtResource("4_rarc7")]
-position = Vector2(-1168, 304)
-scale = Vector2(1.08038, 1.03042)
 
 [node name="obsticles" type="Node" parent="."]
 
@@ -175,10 +170,10 @@ shape = SubResource("RectangleShape2D_fay65")
 [node name="L0Cutscene" parent="cutscenetrigger" instance=ExtResource("11_eeoac")]
 
 [node name="Checkpoint" parent="." instance=ExtResource("12_bei8a")]
-position = Vector2(-1080, 320)
+position = Vector2(2180, -560)
 
 [node name="Checkpoint2" parent="." instance=ExtResource("12_bei8a")]
-position = Vector2(12040, 224)
+position = Vector2(11945, 224)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAD8/xMAAAAAAAAAAQD5/xMAAAAAAAAAAQD6/xMAAAAAAAAAAQD3/xMAAAAAAAAAAQD1/xMAAAAAAAAAAQD9/xMAAAAAAAAAAQD//xMAAAAAAAAAAQABABMAAAAAAAAAAQADABMAAAAAAAAAAQAFABMAAAAAAAAAAQAIABMAAAAAAAAAAQAGABMAAAAAAAAAAQALABMAAAAAAAAAAQAJABMAAAAAAAAAAQANABMAAAAAAAAAAQAOABMAAAAAAAAAAQAPABMAAAAAAAAAAQAQABMAAAAAAAAAAQARABMAAAAAAAAAAQASABMAAAAAAAAAAQATABMAAAAAAAAAAQAUABMAAAAAAAAAAQAUABQAAAAAAAAAAQAVABQAAAAAAAAAAQAWABQAAAAAAAAAAQAWABMAAAAAAAAAAQAXABMAAAAAAAAAAQAYABMAAAAAAAAAAQAZABMAAAAAAAAAAQAaABMAAAAAAAAAAQAbABMAAAAAAAAAAQAcABMAAAAAAAAAAQAcABQAAAAAAAAAAQAdABMAAAAAAAAAAQAeABMAAAAAAAAAAQAfABMAAAAAAAAAAQAgABMAAAAAAAAAAQAhABMAAAAAAAAAAQAiABMAAAAAAAAAAQAjABMAAAAAAAAAAQAjABQAAAAAAAAAAQAkABQAAAAAAAAAAQAlABQAAAAAAAAAAQAlABMAAAAAAAAAAQAmABMAAAAAAAAAAQAnABMAAAAAAAAAAQAoABMAAAAAAAAAAQAoABQAAAAAAAAAAQApABQAAAAAAAAAAQAqABQAAAAAAAAAAQAqABMAAAAAAAAAAQAsABMAAAAAAAAAAQAtABMAAAAAAAAAAQAuABMAAAAAAAAAAQAvABMAAAAAAAAAAQAwABMAAAAAAAAAAQAxABMAAAAAAAAAAQAyABMAAAAAAAAAAQAzABMAAAAAAAAAAQBIAAwAAAAAAAAAAQBIAAsAAAAAAAAAAQBJAAsAAAAAAAAAAQBKAAsAAAAAAAAAAQBKAAwAAAAAAAAAAQBKAA0AAAAAAAAAAQBLAA0AAAAAAAAAAQBMAA0AAAAAAAAAAQBMAAwAAAAAAAAAAQBMAAsAAAAAAAAAAQA=")
