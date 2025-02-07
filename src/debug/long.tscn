@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bqx2tuyp13w0c"]
+[gd_scene load_steps=8 format=3 uid="uid://bqx2tuyp13w0c"]
 
 [ext_resource type="Texture2D" uid="uid://b1yebcyrrax44" path="res://asstes/ENVIRONMENT/props/banner-sushi/banner-sushi-1.png" id="1_be4n7"]
 [ext_resource type="Script" path="res://src/debug/long.gd" id="1_x1oad"]
 [ext_resource type="PackedScene" uid="uid://cqiyvpwmi2l68" path="res://src/player/player.tscn" id="2_dvx1i"]
 [ext_resource type="PackedScene" uid="uid://bl4dsh3y14uoo" path="res://src/ui_gen/text_box.tscn" id="4_rdr3n"]
+[ext_resource type="PackedScene" uid="uid://dx4d58apuq1x0" path="res://src/env/level_end.tscn" id="4_w3k1v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0568g"]
 size = Vector2(16969, 216)
@@ -38,6 +39,9 @@ scale = Vector2(0.680001, 1)
 shape = SubResource("RectangleShape2D_dxe81")
 
 [node name="TextBox" parent="." instance=ExtResource("4_rdr3n")]
+
+[node name="LevelEnd" parent="." instance=ExtResource("4_w3k1v")]
+position = Vector2(-4503, 1727)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
