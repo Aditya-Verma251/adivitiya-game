@@ -12,7 +12,7 @@ size = Vector2(91.5, 197.063)
 
 [node name="enemy2" type="CharacterBody2D"]
 position = Vector2(0, -16)
-scale = Vector2(0.499174, 0.499174)
+scale = Vector2(0.747006, 0.747006)
 collision_layer = 2
 collision_mask = 7
 motion_mode = 1
@@ -38,7 +38,7 @@ scale = Vector2(1.23548, 0.994872)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 position = Vector2(0, 96.5931)
-scale = Vector2(18.675, 6.3571)
+scale = Vector2(14.8454, 5.05348)
 polygon = PackedVector2Array(0, 0, 155.405, 273.402, -155.405, 273.402)
 
 [node name="ProjectileContainer" type="Node2D" parent="."]
