@@ -151,7 +151,7 @@ func _on_change_gravity(grav : Vector2) -> void:
 	g = grav
 
 func gameOver() -> void:
-	get_tree().change_scene_to_file("res://src/player/DeathScreen.tscn")
+	get_tree().change_scene_to_file("res://src/ui_gen/DeathScreen.tscn")
 
 func _on_player_damage(value : int):
 	if not GlobalVariables.isPaused:

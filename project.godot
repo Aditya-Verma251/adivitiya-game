@@ -17,16 +17,16 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GlobalVariables="*res://src/other/global_variables.gd"
-InstantQuit="*res://src/other/instant_quit.tscn"
-PlayerDamageController="*res://src/other/player_damage_controller.gd"
-PlayerGeneralSignalManager="*res://src/other/player_general_signal_manager.gd"
-CheckPointHolder="*res://src/other/check_point_holder.gd"
+CheckPointHolder="*res://src/globals/check_point_holder.gd"
+GlobalVariables="*res://src/globals/global_variables.gd"
+InstantQuit="*res://src/globals/instant_quit.gd"
+PlayerDamageController="*res://src/globals/player_damage_controller.gd"
+PlayerGeneralSignalManager="*res://src/globals/player_general_signal_manager.gd"
 
 [display]
 
 window/size/mode=2
-mouse_cursor/custom_image="res://asstes/bwehhhh/cursor.png"
+mouse_cursor/custom_image="res://asstes/visuals/bwehhhh/cursor.png"
 
 [input]
 

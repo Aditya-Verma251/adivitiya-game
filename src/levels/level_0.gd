@@ -8,6 +8,7 @@ func glitchCutscene() -> void:
 	pass
 
 func _ready() -> void:
+	#Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	player = preload("res://src/player/player.tscn")
 	var p = player.instantiate()
 	

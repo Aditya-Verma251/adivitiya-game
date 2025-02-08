@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://gmid67ebwr3m"]
 
 [ext_resource type="Script" path="res://src/enemies/enemy_2.gd" id="1_fxdrt"]
-[ext_resource type="Texture2D" uid="uid://dxkores5rgp5j" path="res://asstes/SPRITES/misc/drone/drone-3.png" id="2_ieimv"]
+[ext_resource type="Texture2D" uid="uid://dxkores5rgp5j" path="res://asstes/visuals/stolen/SPRITES/misc/drone/drone-3.png" id="2_fm2v5"]
 [ext_resource type="PackedScene" uid="uid://dkwok76eo8dvf" path="res://src/enemies/enemy_explosion.tscn" id="3_60iay"]
-[ext_resource type="AudioStream" uid="uid://m40vn70f8pbx" path="res://asstes/sounds/laser-104024.mp3" id="4_i1spm"]
-[ext_resource type="AudioStream" uid="uid://8x0ogvr375oj" path="res://asstes/sounds/boom2.wav" id="5_o7ikr"]
-[ext_resource type="AudioStream" uid="uid://cridwjxr7pour" path="res://asstes/sounds/boom12.wav" id="6_wh4fo"]
+[ext_resource type="AudioStream" path="res://asstes/sounds/laser-104024.mp3" id="4_i1spm"]
+[ext_resource type="AudioStream" path="res://asstes/sounds/boom2.wav" id="5_o7ikr"]
+[ext_resource type="AudioStream" path="res://asstes/sounds/boom12.wav" id="6_wh4fo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_do46h"]
 size = Vector2(91.5, 197.063)
@@ -23,9 +23,9 @@ bSpeed = 700.0
 damageValue = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, 6)
+position = Vector2(-1.33868, 6)
 scale = Vector2(5.47567, 5.60347)
-texture = ExtResource("2_ieimv")
+texture = ExtResource("2_fm2v5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 1)

@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://21mi6067ly0b"]
+[gd_scene load_steps=3 format=3 uid="uid://dv5yiyp4a1576"]
 
 [ext_resource type="Script" path="res://src/player/hearts.gd" id="1_4v1wf"]
-[ext_resource type="Texture2D" uid="uid://im8m20joosl1" path="res://asstes/heart pixel art/heart pixel art/heart pixel art 64x64.png" id="2_bmyoi"]
+[ext_resource type="Texture2D" uid="uid://im8m20joosl1" path="res://asstes/visuals/stolen/heart pixel art/heart pixel art/heart pixel art 64x64.png" id="2_ak4bc"]
 
 [node name="hearts" type="CanvasLayer"]
 script = ExtResource("1_4v1wf")
@@ -13,12 +13,12 @@ offset_bottom = 64.0
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
 light_mask = 2
 layout_mode = 2
-texture = ExtResource("2_bmyoi")
+texture = ExtResource("2_ak4bc")
 
 [node name="TextureRect2" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("2_bmyoi")
+texture = ExtResource("2_ak4bc")
 
 [node name="TextureRect3" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("2_bmyoi")
+texture = ExtResource("2_ak4bc")
