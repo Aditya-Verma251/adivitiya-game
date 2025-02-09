@@ -18,7 +18,7 @@ func shoot() -> void:
 	d.normalized()
 	projectile.setException(name)
 	projectile.move(d.normalized() * bSpeed)
-	$ProjectileContainer.add_child(projectile)
+	$ProjectileContainer.call_deferred("add_child", projectile)
 	$AudioStreamPlayer2D.play()
 
 func _ready() -> void:
@@ -41,19 +41,10 @@ func takeDamage(value):
 	else:
 		$DamageTime.start()
 
-func _process(delta: float) -> void:
-	pass
-	
-func _physics_process(delta: float) -> void:
-	pass
-	
-
-
 func _on_time_period_timeout() -> void:
 	if toShoot:
 		shoot()
-	
-
+		#call_deferred("shoot")
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Player":

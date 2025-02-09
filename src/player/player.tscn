@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://cqiyvpwmi2l68"]
 
 [ext_resource type="Script" path="res://src/player/player.gd" id="1_786lq"]
-[ext_resource type="SpriteFrames" path="res://asstes/visuals/a_little_less_stolen/jump_anim.tres" id="2_ipuhu"]
+[ext_resource type="SpriteFrames" uid="uid://c6if7x4yomcft" path="res://asstes/visuals/a_little_less_stolen/jump_anim.tres" id="2_ipuhu"]
 [ext_resource type="Texture2D" uid="uid://n6omb4oftkqp" path="res://asstes/visuals/stolen/SPRITES/misc/shot-hit/shot-hit-1.png" id="3_25iee"]
 [ext_resource type="Texture2D" uid="uid://dxiv1vf4w17dn" path="res://asstes/visuals/stolen/SPRITES/misc/shot-hit/shot-hit-2.png" id="4_dcf6l"]
 [ext_resource type="Texture2D" uid="uid://dhmvscoxlpp7t" path="res://asstes/visuals/stolen/SPRITES/misc/shot-hit/shot-hit-3.png" id="5_i22jg"]

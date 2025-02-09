@@ -7,8 +7,3 @@ func _ready() -> void:
 		collision_layer = 32
 		collision_mask = 32
 	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

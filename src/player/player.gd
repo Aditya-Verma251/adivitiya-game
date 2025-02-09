@@ -88,7 +88,7 @@ func _process(_delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	if not GlobalVariables.isPaused:
-		var s
+		#var s
 		if not is_on_floor():
 			velocity.y += g.y * delta
 		else:
@@ -162,6 +162,7 @@ func _on_player_damage(value : int):
 		
 		if health <= 0:
 			gameOver()
+			#call_deferred("gameOver")
 		elif health > maxHealth:
 			health = maxHealth
 			

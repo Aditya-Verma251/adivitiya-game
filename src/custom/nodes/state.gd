@@ -2,6 +2,12 @@ extends Node
 
 class_name State
 
+func enter() -> State:
+	return null
+
+func exit() -> State:
+	return null
+
 func state_ready() -> State:
 	return null
 
