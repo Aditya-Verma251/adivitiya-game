@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dsuy5pdno0alb"]
 
-[ext_resource type="Script" path="res://src/levels/title_screen.gd" id="1_hroba"]
+[ext_resource type="Script" path="res://src/ui_gen/title_screen.gd" id="1_hroba"]
 
 [sub_resource type="Theme" id="Theme_ud254"]
 default_font_size = 58

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cqiyvpwmi2l68"]
+[gd_scene load_steps=12 format=3 uid="uid://cqiyvpwmi2l68"]
 
 [ext_resource type="Script" path="res://src/player/player.gd" id="1_786lq"]
 [ext_resource type="SpriteFrames" path="res://asstes/visuals/a_little_less_stolen/jump_anim.tres" id="2_ipuhu"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://chdr2ulwoew6s" path="res://icon.svg" id="6_2ddam"]
 [ext_resource type="Script" path="res://src/player/facing.gd" id="7_w1fsf"]
 [ext_resource type="PackedScene" uid="uid://dv5yiyp4a1576" path="res://src/player/hearts.tscn" id="9_hwjwy"]
-[ext_resource type="Script" path="res://src/ui_gen/hearts.gd" id="10_v610c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fupsj"]
 
@@ -107,7 +106,6 @@ position = Vector2(200, 0)
 texture = ExtResource("6_2ddam")
 
 [node name="hearts" parent="." instance=ExtResource("9_hwjwy")]
-script = ExtResource("10_v610c")
 
 [node name="DamageTimer" type="Timer" parent="."]
 wait_time = 0.2

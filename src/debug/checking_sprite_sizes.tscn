@@ -1,0 +1,129 @@
+[gd_scene load_steps=26 format=3 uid="uid://dapxeustmunha"]
+
+[ext_resource type="Texture2D" uid="uid://cuvw8ehftggt4" path="res://asstes/visuals/stolen/SPRITES/vehicles/v-police.png" id="1_3sqoi"]
+[ext_resource type="Texture2D" uid="uid://2g5hp0v3owqy" path="res://asstes/visuals/stolen/SPRITES/vehicles/v-red.png" id="2_td1gw"]
+[ext_resource type="Texture2D" uid="uid://d3e75svhx0mqf" path="res://asstes/visuals/stolen/SPRITES/vehicles/v-truck.png" id="3_sb88x"]
+[ext_resource type="Texture2D" uid="uid://bw1dbcj3yavlj" path="res://asstes/visuals/stolen/SPRITES/vehicles/v-yellow.png" id="4_175rh"]
+[ext_resource type="Texture2D" uid="uid://cr8h7t60y4qrt" path="res://asstes/visuals/stolen/SPRITES/player/idle/idle-1.png" id="5_h4r4p"]
+[ext_resource type="Texture2D" uid="uid://cjmdlwwnny1er" path="res://asstes/visuals/stolen/SPRITES/player/idle/idle-2.png" id="6_fm2rs"]
+[ext_resource type="Texture2D" uid="uid://luoofdik8ouf" path="res://asstes/visuals/stolen/SPRITES/player/idle/idle-3.png" id="7_nwocd"]
+[ext_resource type="Texture2D" uid="uid://cltb0y4fxrkpr" path="res://asstes/visuals/stolen/SPRITES/player/back-jump/back-jump-1.png" id="8_6hg0c"]
+[ext_resource type="Texture2D" uid="uid://cvnk5hr8cxgvc" path="res://asstes/visuals/stolen/SPRITES/player/back-jump/back-jump-3.png" id="9_y47aq"]
+[ext_resource type="Texture2D" uid="uid://bh6hu2fxm1c34" path="res://asstes/visuals/stolen/SPRITES/player/back-jump/back-jump-4.png" id="10_mk7tj"]
+[ext_resource type="Texture2D" uid="uid://k05gqtdwccu2" path="res://asstes/visuals/stolen/SPRITES/player/run/run-1.png" id="11_pdxdc"]
+[ext_resource type="Texture2D" uid="uid://cyfc4gkh0isla" path="res://asstes/visuals/stolen/SPRITES/player/run/run-2.png" id="12_30icv"]
+[ext_resource type="Texture2D" uid="uid://bdi7damthhmfh" path="res://asstes/visuals/stolen/SPRITES/player/run/run-3.png" id="13_fh3a4"]
+[ext_resource type="Texture2D" uid="uid://bb6pvjo5sxent" path="res://asstes/visuals/stolen/SPRITES/misc/drone/drone-1.png" id="14_bb06o"]
+[ext_resource type="Texture2D" uid="uid://bs7py1iq6apmf" path="res://asstes/visuals/stolen/SPRITES/misc/drone/drone-2.png" id="15_o5hq3"]
+[ext_resource type="Texture2D" uid="uid://c1eugjcrr3l33" path="res://asstes/visuals/stolen/SPRITES/misc/drone/drone-4.png" id="16_aoyah"]
+[ext_resource type="Texture2D" uid="uid://8tg0kenw37kv" path="res://asstes/visuals/stolen/SPRITES/misc/enemy-explosion/enemy-explosion-1.png" id="17_8khlb"]
+[ext_resource type="Texture2D" uid="uid://dbh8abxyq0icw" path="res://asstes/visuals/stolen/SPRITES/misc/enemy-explosion/enemy-explosion-4.png" id="18_68jam"]
+[ext_resource type="Texture2D" uid="uid://dpkkdbf6yebuk" path="res://asstes/visuals/stolen/SPRITES/misc/enemy-explosion/enemy-explosion-6.png" id="19_8vvv0"]
+[ext_resource type="Texture2D" uid="uid://gky5rerde5kf" path="res://asstes/visuals/stolen/SPRITES/misc/turret/turret-1.png" id="20_lrnxe"]
+[ext_resource type="Texture2D" uid="uid://baum5lpffb47e" path="res://asstes/visuals/stolen/SPRITES/misc/turret/turret-3.png" id="21_t3irv"]
+[ext_resource type="Texture2D" uid="uid://8hophg2s02l8" path="res://asstes/visuals/stolen/SPRITES/misc/turret/turret-6.png" id="22_3s26w"]
+[ext_resource type="Texture2D" uid="uid://n6omb4oftkqp" path="res://asstes/visuals/stolen/SPRITES/misc/shot-hit/shot-hit-1.png" id="23_m87bt"]
+[ext_resource type="Texture2D" uid="uid://m1leyydxikvu" path="res://asstes/visuals/stolen/SPRITES/misc/shot/shot-2.png" id="24_j6wt2"]
+[ext_resource type="Script" path="res://src/debug/checking_sprites_sizes_camera_2d.gd" id="25_5p5gl"]
+
+[node name="CheckingSpriteSizes" type="Node2D"]
+
+[node name="V-police" type="Sprite2D" parent="."]
+position = Vector2(148, 61)
+texture = ExtResource("1_3sqoi")
+
+[node name="V-red" type="Sprite2D" parent="."]
+position = Vector2(391, 47)
+texture = ExtResource("2_td1gw")
+
+[node name="V-truck" type="Sprite2D" parent="."]
+position = Vector2(733, 79)
+texture = ExtResource("3_sb88x")
+
+[node name="V-yellow" type="Sprite2D" parent="."]
+position = Vector2(825, 310)
+texture = ExtResource("4_175rh")
+
+[node name="Idle-1" type="Sprite2D" parent="."]
+position = Vector2(339, 302)
+texture = ExtResource("5_h4r4p")
+
+[node name="Idle-2" type="Sprite2D" parent="."]
+position = Vector2(436, 296)
+texture = ExtResource("6_fm2rs")
+
+[node name="Idle-3" type="Sprite2D" parent="."]
+position = Vector2(582, 296)
+texture = ExtResource("7_nwocd")
+
+[node name="Back-jump-1" type="Sprite2D" parent="."]
+position = Vector2(661, 290)
+texture = ExtResource("8_6hg0c")
+
+[node name="Back-jump-3" type="Sprite2D" parent="."]
+position = Vector2(412, 452)
+texture = ExtResource("9_y47aq")
+
+[node name="Back-jump-4" type="Sprite2D" parent="."]
+position = Vector2(574, 434)
+texture = ExtResource("10_mk7tj")
+
+[node name="Run-1" type="Sprite2D" parent="."]
+position = Vector2(871, 395)
+texture = ExtResource("11_pdxdc")
+
+[node name="Run-2" type="Sprite2D" parent="."]
+position = Vector2(634, 395)
+texture = ExtResource("12_30icv")
+
+[node name="Run-3" type="Sprite2D" parent="."]
+position = Vector2(963, 230)
+texture = ExtResource("13_fh3a4")
+
+[node name="Drone-1" type="Sprite2D" parent="."]
+position = Vector2(942, 322)
+texture = ExtResource("14_bb06o")
+
+[node name="Drone-2" type="Sprite2D" parent="."]
+position = Vector2(738, 224)
+texture = ExtResource("15_o5hq3")
+
+[node name="Drone-4" type="Sprite2D" parent="."]
+position = Vector2(838, 199)
+texture = ExtResource("16_aoyah")
+
+[node name="Enemy-explosion-1" type="Sprite2D" parent="."]
+position = Vector2(942, 532)
+texture = ExtResource("17_8khlb")
+
+[node name="Enemy-explosion-4" type="Sprite2D" parent="."]
+position = Vector2(1081, 448)
+texture = ExtResource("18_68jam")
+
+[node name="Enemy-explosion-6" type="Sprite2D" parent="."]
+position = Vector2(1041, 356)
+texture = ExtResource("19_8vvv0")
+
+[node name="Turret-1" type="Sprite2D" parent="."]
+position = Vector2(1029, 230)
+texture = ExtResource("20_lrnxe")
+
+[node name="Turret-3" type="Sprite2D" parent="."]
+position = Vector2(1062, 158)
+texture = ExtResource("21_t3irv")
+
+[node name="Turret-6" type="Sprite2D" parent="."]
+position = Vector2(943, 157)
+texture = ExtResource("22_3s26w")
+
+[node name="Shot-hit-1" type="Sprite2D" parent="."]
+position = Vector2(1029, 106)
+texture = ExtResource("23_m87bt")
+
+[node name="Shot-2" type="Sprite2D" parent="."]
+position = Vector2(910, 119)
+texture = ExtResource("24_j6wt2")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(580, 330)
+script = ExtResource("25_5p5gl")

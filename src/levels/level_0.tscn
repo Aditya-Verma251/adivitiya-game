@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://dpjx6aasnjny5"]
+[gd_scene load_steps=23 format=4 uid="uid://dpjx6aasnjny5"]
 
 [ext_resource type="Script" path="res://src/levels/level_0.gd" id="1_y8mqm"]
 [ext_resource type="Texture2D" uid="uid://caukr04bgmsh3" path="res://asstes/visuals/stolen/ENVIRONMENT/background/skyline-b.png" id="2_e2f6m"]
@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://dx4d58apuq1x0" path="res://src/env/level_end.tscn" id="11_e4524"]
 [ext_resource type="PackedScene" uid="uid://wah387jlafnn" path="res://src/cutscenes/l_0_cutscene.tscn" id="11_eeoac"]
 [ext_resource type="PackedScene" uid="uid://dngjr7iffqlpq" path="res://src/env/checkpoint.tscn" id="12_bei8a"]
-[ext_resource type="Script" path="res://src/cutscenes/l_0_cutscene.gd" id="13_jg24h"]
 [ext_resource type="PackedScene" uid="uid://bq0rdkpcq2em6" path="res://src/env/deathplane.tscn" id="13_ytdlm"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_68tb5"]
@@ -189,7 +188,6 @@ scale = Vector2(0.829772, 10.5203)
 shape = SubResource("RectangleShape2D_fay65")
 
 [node name="L0Cutscene" parent="cutscenetrigger" instance=ExtResource("11_eeoac")]
-script = ExtResource("13_jg24h")
 
 [node name="Checkpoint" parent="." instance=ExtResource("12_bei8a")]
 position = Vector2(2180, -560)

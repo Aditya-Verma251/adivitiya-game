@@ -38,9 +38,9 @@ func _ready() -> void:
 	if glitchTimerLimits.y < 0.05:
 		glitchTimerLimits.y = 0.06
 	
-	PlayerDamageController.playerDamage.connect(_on_player_damage)
-	PlayerGeneralSignalManager.glitchyPosition.connect(_on_glitchy_position)
-	PlayerGeneralSignalManager.teleport.connect(_on_teleport)
+	SignalManager.playerDamage.connect(_on_player_damage)
+	SignalManager.glitchyPosition.connect(_on_glitchy_position)
+	SignalManager.teleport.connect(_on_teleport)
 	$SwordAnim.visible = false
 	$CollisionShape2D/AnimatedSprite2D.animation = "idle"
 	$CollisionShape2D/AnimatedSprite2D.play()

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dv5yiyp4a1576"]
 
-[ext_resource type="Script" path="res://src/player/hearts.gd" id="1_4v1wf"]
+[ext_resource type="Script" path="res://src/ui_gen/hearts.gd" id="1_4v1wf"]
 [ext_resource type="Texture2D" uid="uid://im8m20joosl1" path="res://asstes/visuals/stolen/heart pixel art/heart pixel art/heart pixel art 64x64.png" id="2_ak4bc"]
 
 [node name="hearts" type="CanvasLayer"]

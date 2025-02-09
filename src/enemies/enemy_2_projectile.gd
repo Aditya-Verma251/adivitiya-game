@@ -21,7 +21,7 @@ func setException(v):
 func _on_enemy_2_projectile_body_entered(body: Node2D) -> void:
 	#print(e2)
 	if body.name == "Player":
-		PlayerDamageController.playerDamage.emit(damageValue)
+		SignalManager.playerDamage.emit(damageValue)
 	if body.name != e2:
 		queue_free()
 

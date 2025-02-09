@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://8x0ogvr375oj"
-path="res://.godot/imported/boom2.wav-10b0fa3f9a189c75ea8f1cd4052f37a7.sample"
+path="res://.godot/imported/boom2.wav-48029083e01ca92275ca85736f4842b8.sample"
 
 [deps]
 
-source_file="res://asstes/audio/boom2.wav"
-dest_files=["res://.godot/imported/boom2.wav-10b0fa3f9a189c75ea8f1cd4052f37a7.sample"]
+source_file="res://asstes/audio/enemy/explosion/boom2.wav"
+dest_files=["res://.godot/imported/boom2.wav-48029083e01ca92275ca85736f4842b8.sample"]
 
 [params]
 

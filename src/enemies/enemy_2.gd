@@ -6,7 +6,7 @@ extends CharacterBody2D
 @export var time :float
 @export var bSpeed = 0.01
 @export var damageValue : int
-var proj = preload("res://src/enemies/enemy2projectile.tscn")
+var proj = SceneHolder.enemyTwoProjectile
 var toShoot = false
 var player
 var rng = RandomNumberGenerator.new()
@@ -72,7 +72,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 
 func _on_area_2d_2_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
-		PlayerDamageController.playerDamage.emit(damageValue)
+		SignalManager.playerDamage.emit(damageValue)
 
 func die():
 	$Sprite2D.visible = false

@@ -50,7 +50,7 @@ func _on_time_period_timeout() -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
-		PlayerDamageController.playerDamage.emit(damageValue)
+		SignalManager.playerDamage.emit(damageValue)
 
 func die():
 	$Sprite2D.visible = false

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://elwvn6ks4jf8"]
 
 [ext_resource type="Script" path="res://src/enemies/enemy_2_projectile.gd" id="1_8le2y"]
-[ext_resource type="Texture2D" uid="uid://baxkx6to22mnm" path="res://asstes/enemy_laser.png" id="1_j0w5p"]
+[ext_resource type="Texture2D" uid="uid://baxkx6to22mnm" path="res://asstes/visuals/a_little_less_stolen/enemy_laser.png" id="1_j0w5p"]
 [ext_resource type="Script" path="res://src/enemies/enemy_2_projectile_area.gd" id="3_vhvb3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7qwbk"]

@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://cl23mivb2a63y"]
 
 [ext_resource type="Script" path="res://src/enemies/enemy_1.gd" id="1_3qghp"]
-[ext_resource type="Texture2D" uid="uid://gky5rerde5kf" path="res://asstes/SPRITES/misc/turret/turret-1.png" id="1_8o0gs"]
+[ext_resource type="Texture2D" uid="uid://gky5rerde5kf" path="res://asstes/visuals/stolen/SPRITES/misc/turret/turret-1.png" id="1_8o0gs"]
 [ext_resource type="PackedScene" uid="uid://dkwok76eo8dvf" path="res://src/enemies/enemy_explosion.tscn" id="3_nj3h4"]
-[ext_resource type="AudioStream" uid="uid://8x0ogvr375oj" path="res://asstes/sounds/boom2.wav" id="4_55shh"]
-[ext_resource type="AudioStream" uid="uid://cridwjxr7pour" path="res://asstes/sounds/boom12.wav" id="5_pffo0"]
+[ext_resource type="AudioStream" uid="uid://8x0ogvr375oj" path="res://asstes/audio/enemy/explosion/boom2.wav" id="4_55shh"]
+[ext_resource type="AudioStream" uid="uid://cridwjxr7pour" path="res://asstes/audio/enemy/explosion/boom12.wav" id="5_pffo0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_py4il"]
 size = Vector2(9.95827, 531.474)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://wah387jlafnn"]
 
-[ext_resource type="Script" path="res://src/other/l_0_cutscene.gd" id="1_d4les"]
+[ext_resource type="Script" path="res://src/cutscenes/l_0_cutscene.gd" id="1_d4les"]
 [ext_resource type="PackedScene" uid="uid://bl4dsh3y14uoo" path="res://src/ui_gen/text_box.tscn" id="2_h3mow"]
 
 [node name="L0Cutscene" type="Node"]
