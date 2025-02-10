@@ -1,9 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://dvi030eycrhhd"]
+[gd_scene load_steps=7 format=4 uid="uid://dvi030eycrhhd"]
 
 [ext_resource type="PackedScene" uid="uid://cqiyvpwmi2l68" path="res://src/player/player.tscn" id="1_1ti74"]
 [ext_resource type="Script" path="res://src/debug/main.gd" id="1_62tce"]
-[ext_resource type="Texture2D" uid="uid://0amxgk4kuxnr" path="res://asstes/ENVIRONMENT/background/skyline-a.png" id="1_ee31t"]
+[ext_resource type="Texture2D" uid="uid://0amxgk4kuxnr" path="res://asstes/visuals/stolen/ENVIRONMENT/background/skyline-a.png" id="1_ee31t"]
 [ext_resource type="PackedScene" uid="uid://b16m7yxcmaokp" path="res://src/env/floor.tscn" id="3_citqy"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_0i5n1"]
+scenes/1/scene = ExtResource("3_citqy")
+
+[sub_resource type="TileSet" id="TileSet_ojmdk"]
+tile_size = Vector2i(135, 130)
+sources/0 = SubResource("TileSetScenesCollectionSource_0i5n1")
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_62tce")
@@ -34,8 +41,13 @@ scale = Vector2(5.36, 5.36)
 texture = ExtResource("1_ee31t")
 
 [node name="Floor" parent="." instance=ExtResource("3_citqy")]
+position = Vector2(-7, 427)
 
 [node name="Player" parent="." instance=ExtResource("1_1ti74")]
 scale = Vector2(1.02173, 0.851176)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD7/wIAAAAAAAAAAQD8/wIAAAAAAAAAAQD9/wIAAAAAAAAAAQD+/wIAAAAAAAAAAQD//wIAAAAAAAAAAQAAAAIAAAAAAAAAAQABAAIAAAAAAAAAAQAHAAIAAAAAAAAAAQAIAAIAAAAAAAAAAQAJAAIAAAAAAAAAAQAKAAIAAAAAAAAAAQALAAIAAAAAAAAAAQAMAAIAAAAAAAAAAQANAAIAAAAAAAAAAQAOAAIAAAAAAAAAAQD6/wIAAAAAAAAAAQD5/wIAAAAAAAAAAQAAAAMAAAAAAAAAAQAAAAQAAAAAAAAAAQAAAAUAAAAAAAAAAQABAAUAAAAAAAAAAQACAAUAAAAAAAAAAQADAAUAAAAAAAAAAQAEAAUAAAAAAAAAAQAFAAUAAAAAAAAAAQAGAAUAAAAAAAAAAQAHAAUAAAAAAAAAAQAHAAQAAAAAAAAAAQAHAAMAAAAAAAAAAQABAAMAAAAAAAAAAQABAAQAAAAAAAAAAQAIAAMAAAAAAAAAAQAIAAQAAAAAAAAAAQAIAAUAAAAAAAAAAQA=")
+tile_set = SubResource("TileSet_ojmdk")
 
 [connection signal="mpu" from="." to="Player" method="_on_main_mpu"]

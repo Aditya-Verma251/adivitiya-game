@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 var rng = RandomNumberGenerator.new()
 
@@ -26,10 +27,18 @@ static var isInputFixed = true
 static var isPositionFixed = GlobalVariables.isPositionFixed
 @export var limits : Vector4
 @export var glitchTimerLimits : Vector2 #x is lower limit and y is upper limit
+@export var fallingGravityScale : float = 1.75
 var isJumping = false 
 var isRunning = false
 var isDashing = false
 var direction
+var Anim : AnimatedSprite2D
+var CoyoteTimer : Timer
+var coyoteTimeEnd : bool = false
+var DashTime : Timer #how long dash lasts
+var DashTimer : Timer # time between dashes (from the start of first dash)
+var Facing : Node2D
+var canDash : bool = true
 
 func _ready() -> void:
 	if glitchTimerLimits.x < 0.05:
@@ -38,10 +47,18 @@ func _ready() -> void:
 	if glitchTimerLimits.y < 0.05:
 		glitchTimerLimits.y = 0.06
 	
+	Facing = $Center/Facing
+	Anim = $CollisionShape2D/AnimatedSprite2D
+	CoyoteTimer = $CoyoteTime
+	DashTime = $DashTime
+	DashTimer = $DashTimer
+	$MovementStateHandler.init(self, Anim)
+	
 	SignalManager.playerDamage.connect(_on_player_damage)
 	SignalManager.glitchyPosition.connect(_on_glitchy_position)
 	SignalManager.teleport.connect(_on_teleport)
 	$SwordAnim.visible = false
+	
 	$CollisionShape2D/AnimatedSprite2D.animation = "idle"
 	$CollisionShape2D/AnimatedSprite2D.play()
 	og = g
@@ -87,61 +104,20 @@ func _process(_delta: float) -> void:
 			swing()
 
 func _physics_process(delta: float) -> void:
-	if not GlobalVariables.isPaused:
-		#var s
-		if not is_on_floor():
-			velocity.y += g.y * delta
-		else:
-			isJumping = false
+	if not is_on_floor():
+		velocity.y += g.y * delta
 		
-		#Input.get_axis()
-		# Get the input direction and handle the movement/deceleration.
-		# As good practice, you should replace UI actions with custom gameplay actions.
-		direction = getDirection()
-		if direction != 0:
-			if $CollisionShape2D/AnimatedSprite2D.animation != "run":
-				if $CollisionShape2D/AnimatedSprite2D.is_playing():
-					$CollisionShape2D/AnimatedSprite2D.stop()
-				$CollisionShape2D/AnimatedSprite2D.animation = "run"
-				$CollisionShape2D/AnimatedSprite2D.play()
-				
-			$Center.flipped = direction < 0
-			speed += acc
-			isRunning = true
-			if speed > max_speed and not isDashing:
-				speed = max_speed
-		elif not isDashing:
-				if $CollisionShape2D/AnimatedSprite2D.animation != "idle":
-					if $CollisionShape2D/AnimatedSprite2D.is_playing():
-						$CollisionShape2D/AnimatedSprite2D.stop()
-					$CollisionShape2D/AnimatedSprite2D.animation = "idle"
-					$CollisionShape2D/AnimatedSprite2D.play()
-				isRunning = false
-				speed = 0
-				
-			
+	velocity.x += g.x * delta
+	
+	if not canDash and is_on_floor():
+		canDash = true
 
-		# Handle jump.
-		if Input.is_action_just_pressed("jump") and is_on_floor() and isInputFixed:
-			velocity.y += jump_velocity
-			isJumping = true
-			#print(current_state)
+	direction = getDirection()
+	if direction != 0:
+		$Center.flipped = direction < 0
 
-		if Input.is_action_just_pressed("dash") and not justDashed:
-				print("dash")
-				velocity.y = 0
-				speed = dashSpeed
-				og = g
-				g = Vector2.ZERO
-				justDashed = true
-				isDashing = true
-				endDash = false
-				$DashTimer.start()
-				$DashTime.start()
-				
-
-		velocity.x = speed * (direction if direction != 0 else ($Center/Facing.position.x if isInputFixed else -$Center/Facing.position.x)) + g.x
-		move_and_slide()
+	#print(velocity, "	", position)
+	move_and_slide()
 
 
 func _on_main_mpu() -> void:
@@ -240,3 +216,7 @@ func _on_glitch_timer_timeout() -> void:
 func _on_teleport(pos : Vector2):
 	print(pos, "teleport")
 	position = pos
+
+
+func _on_coyote_time_timeout() -> void:
+	coyoteTimeEnd = true
