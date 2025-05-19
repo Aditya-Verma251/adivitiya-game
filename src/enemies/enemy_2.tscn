@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://gmid67ebwr3m"]
+[gd_scene load_steps=9 format=3 uid="uid://gmid67ebwr3m"]
 
 [ext_resource type="Script" path="res://src/enemies/enemy_2.gd" id="1_fxdrt"]
 [ext_resource type="Texture2D" uid="uid://dxkores5rgp5j" path="res://asstes/visuals/stolen/SPRITES/misc/drone/drone-3.png" id="2_fm2v5"]
@@ -7,12 +7,13 @@
 [ext_resource type="AudioStream" uid="uid://8x0ogvr375oj" path="res://asstes/audio/enemy/explosion/boom2.wav" id="5_o7ikr"]
 [ext_resource type="AudioStream" uid="uid://cridwjxr7pour" path="res://asstes/audio/enemy/explosion/boom12.wav" id="6_wh4fo"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_do46h"]
-size = Vector2(91.5, 197.063)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_308ss"]
+size = Vector2(13.3868, 21.4188)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e5jmg"]
+size = Vector2(16.0641, 24.0962)
 
 [node name="enemy2" type="CharacterBody2D"]
-position = Vector2(0, -16)
-scale = Vector2(0.747006, 0.747006)
 collision_layer = 2
 collision_mask = 7
 motion_mode = 1
@@ -22,19 +23,11 @@ blinkCount = -9
 bSpeed = 700.0
 damageValue = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-1.33868, 6)
-scale = Vector2(5.47567, 5.60347)
-texture = ExtResource("2_fm2v5")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 1)
-shape = SubResource("RectangleShape2D_do46h")
-
 [node name="TimePeriod" type="Timer" parent="."]
 autostart = true
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 position = Vector2(0, -74)
 scale = Vector2(1.23548, 0.994872)
 
@@ -43,17 +36,7 @@ position = Vector2(0, 96.5931)
 scale = Vector2(14.8454, 5.05348)
 polygon = PackedVector2Array(0, 0, 155.405, 273.402, -155.405, 273.402)
 
-[node name="ProjectileContainer" type="Node2D" parent="."]
-position = Vector2(0, 20)
-
-[node name="Area2D2" type="Area2D" parent="."]
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2(0.25, 1.46875)
-shape = SubResource("RectangleShape2D_do46h")
-
 [node name="EnemyExplosion" parent="." instance=ExtResource("3_60iay")]
-scale = Vector2(3.24, 3.24)
 
 [node name="DamageTime" type="Timer" parent="."]
 wait_time = 0.2
@@ -77,9 +60,24 @@ stream = ExtResource("6_wh4fo")
 max_distance = 4000.0
 attenuation = 0.25
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_fm2v5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.59583e-07, 5.35471)
+shape = SubResource("RectangleShape2D_308ss")
+
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(0, 5.35471)
+shape = SubResource("RectangleShape2D_e5jmg")
+
+[node name="ProjectileSpawn" type="Node2D" parent="."]
+position = Vector2(0, 18.7415)
+
 [connection signal="timeout" from="TimePeriod" to="." method="_on_time_period_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
-[connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]
 [connection signal="animation_finished" from="EnemyExplosion" to="." method="_on_enemy_explosion"]
 [connection signal="timeout" from="DamageTime" to="." method="_on_damage_time_timeout"]

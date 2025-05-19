@@ -15,10 +15,11 @@ func shoot() -> void:
 	var projectile = proj.instantiate()
 	var d : Vector2 = player.position - position
 	projectile.rotation = acos(d.normalized().x)
-	d.normalized()
+	#d.normalized()
 	projectile.setException(name)
+	projectile.global_position = $ProjectileSpawn.global_position
 	projectile.move(d.normalized() * bSpeed)
-	$ProjectileContainer.call_deferred("add_child", projectile)
+	$"/root/SpawnedObjectContainer".call_deferred("add_child", projectile)
 	$AudioStreamPlayer2D.play()
 
 func _ready() -> void:

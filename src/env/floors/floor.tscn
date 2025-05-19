@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://b16m7yxcmaokp"]
 
-[ext_resource type="Texture2D" uid="uid://bjrhtko427owc" path="res://asstes/Untitled.png" id="2_beu5s"]
+[ext_resource type="Texture2D" uid="uid://c4bq7ilgdcn71" path="res://asstes/visuals/a_little_less_stolen/custom_floor1.png" id="1_gfmn1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m68u3"]
-size = Vector2(135, 121.5)
+size = Vector2(16, 16)
 
 [node name="Floor" type="StaticBody2D"]
 collision_layer = 4
@@ -13,5 +13,4 @@ collision_mask = 7
 shape = SubResource("RectangleShape2D_m68u3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.103957, 0.0951449)
-texture = ExtResource("2_beu5s")
+texture = ExtResource("1_gfmn1")

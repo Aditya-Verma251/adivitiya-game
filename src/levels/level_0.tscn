@@ -1,20 +1,19 @@
-[gd_scene load_steps=23 format=4 uid="uid://dpjx6aasnjny5"]
+[gd_scene load_steps=22 format=4 uid="uid://dpjx6aasnjny5"]
 
 [ext_resource type="Script" path="res://src/levels/level_0.gd" id="1_y8mqm"]
 [ext_resource type="Texture2D" uid="uid://caukr04bgmsh3" path="res://asstes/visuals/stolen/ENVIRONMENT/background/skyline-b.png" id="2_e2f6m"]
-[ext_resource type="PackedScene" uid="uid://b16m7yxcmaokp" path="res://src/env/floor.tscn" id="3_jgosb"]
+[ext_resource type="PackedScene" uid="uid://b16m7yxcmaokp" path="res://src/env/floors/floor.tscn" id="3_jgosb"]
 [ext_resource type="Texture2D" uid="uid://5uf4v5310ota" path="res://asstes/visuals/stolen/ENVIRONMENT/props/control-box-2.png" id="4_etoj7"]
-[ext_resource type="PackedScene" uid="uid://j8m8jorxtuym" path="res://src/env/platform.tscn" id="5_1qltc"]
 [ext_resource type="PackedScene" uid="uid://dohjfmndooygs" path="res://src/env/buildings.tscn" id="5_n742p"]
 [ext_resource type="Texture2D" uid="uid://npq4q68wjra8" path="res://asstes/visuals/stolen/ENVIRONMENT/props/control-box-3.png" id="5_rsgkv"]
-[ext_resource type="PackedScene" uid="uid://dc0ibj33hrhma" path="res://src/env/spike.tscn" id="6_okk26"]
+[ext_resource type="PackedScene" uid="uid://dc0ibj33hrhma" path="res://src/env/platforming/spike.tscn" id="6_okk26"]
 [ext_resource type="PackedScene" uid="uid://cl23mivb2a63y" path="res://src/enemies/enemy_1.tscn" id="8_t4ix5"]
 [ext_resource type="PackedScene" uid="uid://gmid67ebwr3m" path="res://src/enemies/enemy_2.tscn" id="9_157uj"]
-[ext_resource type="Script" path="res://src/env/cutscenetrigger.gd" id="10_wc54g"]
-[ext_resource type="PackedScene" uid="uid://dx4d58apuq1x0" path="res://src/env/level_end.tscn" id="11_e4524"]
+[ext_resource type="Script" path="res://src/env/eventAreas/cutscenetrigger.gd" id="10_wc54g"]
+[ext_resource type="PackedScene" uid="uid://dx4d58apuq1x0" path="res://src/env/eventAreas/level_end.tscn" id="11_e4524"]
 [ext_resource type="PackedScene" uid="uid://wah387jlafnn" path="res://src/cutscenes/l_0_cutscene.tscn" id="11_eeoac"]
-[ext_resource type="PackedScene" uid="uid://dngjr7iffqlpq" path="res://src/env/checkpoint.tscn" id="12_bei8a"]
-[ext_resource type="PackedScene" uid="uid://bq0rdkpcq2em6" path="res://src/env/deathplane.tscn" id="13_ytdlm"]
+[ext_resource type="PackedScene" uid="uid://dngjr7iffqlpq" path="res://src/env/eventAreas/checkpoint.tscn" id="12_bei8a"]
+[ext_resource type="PackedScene" uid="uid://bq0rdkpcq2em6" path="res://src/env/eventAreas/deathplane.tscn" id="13_ytdlm"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_68tb5"]
 scenes/1/scene = ExtResource("6_okk26")
@@ -27,7 +26,6 @@ sources/0 = SubResource("TileSetScenesCollectionSource_68tb5")
 scenes/1/scene = ExtResource("3_jgosb")
 
 [sub_resource type="TileSet" id="TileSet_dr41l"]
-tile_size = Vector2i(135, 120)
 sources/0 = SubResource("TileSetScenesCollectionSource_8lkhu")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fay65"]
@@ -40,23 +38,22 @@ scenes/1/scene = ExtResource("13_ytdlm")
 tile_size = Vector2i(350, 64)
 sources/0 = SubResource("TileSetScenesCollectionSource_72iok")
 
-[node name="Level0" type="Node2D"]
+[node name="Level0" type="Node2D" node_paths=PackedStringArray("opos")]
 script = ExtResource("1_y8mqm")
+opos = NodePath("Opos")
 
 [node name="Background" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Background"]
 texture_repeat = 2
-position = Vector2(-41, -691)
-scale = Vector2(26.7734, 18.4194)
+position = Vector2(1669, -739)
 texture = ExtResource("2_e2f6m")
 region_enabled = true
 region_rect = Rect2(-806.913, 0, 3291.88, 241.312)
 
 [node name="Sprite2D2" type="Sprite2D" parent="Background"]
 texture_repeat = 2
-position = Vector2(-41, -691)
-scale = Vector2(26.7734, 18.4194)
+position = Vector2(1973, -64)
 texture = ExtResource("2_e2f6m")
 region_enabled = true
 region_rect = Rect2(-806.913, 0, 3291.88, 241.312)
@@ -81,32 +78,9 @@ position = Vector2(1.20192, -0.288471)
 scale = Vector2(10.6618, 6.13248)
 texture = ExtResource("4_etoj7")
 
-[node name="Platform" parent="obsticles" instance=ExtResource("5_1qltc")]
-position = Vector2(1329, -801)
-scale = Vector2(1.4, 0.56)
-
-[node name="Platform2" parent="obsticles" instance=ExtResource("5_1qltc")]
-position = Vector2(2189, -313)
-scale = Vector2(2.5671, 0.490799)
-
 [node name="spike" type="TileMapLayer" parent="obsticles"]
 tile_map_data = PackedByteArray("AAAWAP3/AAAAAAAAAQBLAAIAAAAAAAAAAQBMAAIAAAAAAAAAAQBNAAIAAAAAAAAAAQBOAAIAAAAAAAAAAQBPAAIAAAAAAAAAAQBQAAIAAAAAAAAAAQBRAAIAAAAAAAAAAQBKAAIAAAAAAAAAAQAJAAgAAAAAAAAAAQAKAAgAAAAAAAAAAQALAAgAAAAAAAAAAQAMAAgAAAAAAAAAAQANAAgAAAAAAAAAAQAOAAgAAAAAAAAAAQAPAAgAAAAAAAAAAQAQAAgAAAAAAAAAAQARAAgAAAAAAAAAAQASAAgAAAAAAAAAAQATAAgAAAAAAAAAAQAUAAgAAAAAAAAAAQAVAAgAAAAAAAAAAQAWAAgAAAAAAAAAAQAXAAgAAAAAAAAAAQAYAAgAAAAAAAAAAQAZAAgAAAAAAAAAAQAaAAgAAAAAAAAAAQAbAAgAAAAAAAAAAQAcAAgAAAAAAAAAAQAdAAgAAAAAAAAAAQAeAAgAAAAAAAAAAQAfAAgAAAAAAAAAAQAgAAgAAAAAAAAAAQAhAAgAAAAAAAAAAQAiAAgAAAAAAAAAAQAjAAgAAAAAAAAAAQAkAAgAAAAAAAAAAQAlAAgAAAAAAAAAAQAmAAgAAAAAAAAAAQAnAAgAAAAAAAAAAQAoAAgAAAAAAAAAAQApAAgAAAAAAAAAAQAqAAgAAAAAAAAAAQArAAgAAAAAAAAAAQAsAAgAAAAAAAAAAQAtAAgAAAAAAAAAAQAuAAgAAAAAAAAAAQAvAAgAAAAAAAAAAQAwAAgAAAAAAAAAAQAxAAgAAAAAAAAAAQAyAAgAAAAAAAAAAQAzAAgAAAAAAAAAAQA0AAgAAAAAAAAAAQA1AAgAAAAAAAAAAQA2AAgAAAAAAAAAAQA3AAgAAAAAAAAAAQA4AAgAAAAAAAAAAQA5AAgAAAAAAAAAAQA6AAgAAAAAAAAAAQA7AAgAAAAAAAAAAQA8AAgAAAAAAAAAAQA9AAgAAAAAAAAAAQA+AAgAAAAAAAAAAQA/AAgAAAAAAAAAAQBAAAgAAAAAAAAAAQBBAAgAAAAAAAAAAQBCAAgAAAAAAAAAAQBDAAgAAAAAAAAAAQBEAAgAAAAAAAAAAQBFAAgAAAAAAAAAAQBGAAgAAAAAAAAAAQBHAAgAAAAAAAAAAQBIAAgAAAAAAAAAAQBJAAgAAAAAAAAAAQA=")
 tile_set = SubResource("TileSet_5pmtu")
-
-[node name="Platform3" parent="obsticles" instance=ExtResource("5_1qltc")]
-position = Vector2(5087, -308)
-scale = Vector2(5.87999, 0.519999)
-
-[node name="Platform4" parent="obsticles" instance=ExtResource("5_1qltc")]
-position = Vector2(20630, -274.054)
-
-[node name="Platform5" parent="obsticles" instance=ExtResource("5_1qltc")]
-position = Vector2(19456, 24)
-scale = Vector2(1.08275, 0.479302)
-
-[node name="Platform6" parent="obsticles" instance=ExtResource("5_1qltc")]
-position = Vector2(18704, -328)
-scale = Vector2(1.28, 0.52)
 
 [node name="Buildings3" parent="obsticles" instance=ExtResource("5_n742p")]
 position = Vector2(22087.9, 16)
@@ -202,5 +176,13 @@ tile_set = SubResource("TileSet_qbydq")
 [node name="LevelEnd" parent="." instance=ExtResource("11_e4524")]
 position = Vector2(22352, -502)
 scale = Vector2(12.4389, 4.88335)
+
+[node name="Opos" type="Marker2D" parent="."]
+position = Vector2(1219, -95)
+gizmo_extents = 81.4
+
+[node name="Enemy1" parent="." instance=ExtResource("8_t4ix5")]
+position = Vector2(1294, 42)
+time = 1.0
 
 [connection signal="body_entered" from="cutscenetrigger/Area2D" to="." method="_on_area_2d_body_entered"]

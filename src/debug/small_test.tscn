@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cya1piljcamyl"]
+
+[ext_resource type="Texture2D" uid="uid://c1aeivxpv8sln" path="res://asstes/visuals/a_little_less_stolen/ahhhhhh.png" id="1_hgsmb"]
+[ext_resource type="PackedScene" uid="uid://gmid67ebwr3m" path="res://src/enemies/enemy_2.tscn" id="2_b1mmv"]
+[ext_resource type="PackedScene" uid="uid://cqiyvpwmi2l68" path="res://src/player/player.tscn" id="3_sapqm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eynpw"]
+
+[node name="SmallTest" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(442, 710)
+scale = Vector2(1.52, 0.0476191)
+texture = ExtResource("1_hgsmb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(421, 711)
+scale = Vector2(35.28, 1)
+shape = SubResource("RectangleShape2D_eynpw")
+
+[node name="enemy2" parent="." instance=ExtResource("2_b1mmv")]
+position = Vector2(622, 655)
+
+[node name="Player" parent="." instance=ExtResource("3_sapqm")]
+position = Vector2(343.867, 674.83)

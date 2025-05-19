@@ -48,7 +48,7 @@ func _ready() -> void:
 		glitchTimerLimits.y = 0.06
 	
 	Facing = $Center/Facing
-	Anim = $CollisionShape2D/AnimatedSprite2D
+	Anim = $AnimatedSprite2D
 	CoyoteTimer = $CoyoteTime
 	DashTime = $DashTime
 	DashTimer = $DashTimer
@@ -57,10 +57,9 @@ func _ready() -> void:
 	SignalManager.playerDamage.connect(_on_player_damage)
 	SignalManager.glitchyPosition.connect(_on_glitchy_position)
 	SignalManager.teleport.connect(_on_teleport)
-	$SwordAnim.visible = false
 	
-	$CollisionShape2D/AnimatedSprite2D.animation = "idle"
-	$CollisionShape2D/AnimatedSprite2D.play()
+	$AnimatedSprite2D.animation = "idle"
+	$AnimatedSprite2D.play()
 	og = g
 	$AudioListener2D.make_current()
 	if isPositionFixed:
@@ -91,17 +90,8 @@ func switchGlitchyPosition():
 			$GlitchTimer.start()
 
 
-func swing():
-	$Sword.set_collision_layer_value(1, true)
-	$Sword.set_collision_mask_value(2, true)
-	$SwordAnim.visible = true
-	$SwordAnim.play()
-	$SwordTimer.start()
-
 func _process(_delta: float) -> void:
-	if not GlobalVariables.isPaused:
-		if Input.is_action_just_pressed("attack"):
-			swing()
+	pass
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -119,10 +109,6 @@ func _physics_process(delta: float) -> void:
 	#print(velocity, "	", position)
 	move_and_slide()
 
-
-func _on_main_mpu() -> void:
-	isInputFixed = !isInputFixed
-	
 func _on_change_gravity(grav : Vector2) -> void:
 	g = grav
 
@@ -133,7 +119,7 @@ func _on_player_damage(value : int):
 	if not GlobalVariables.isPaused:
 		health -= value
 		set_collision_layer_value(1, false)
-		$CollisionShape2D/AnimatedSprite2D.visible = false
+		$AnimatedSprite2D.visible = false
 		$DamageTimer.start()
 		
 		if health <= 0:
@@ -153,40 +139,17 @@ func _on_player_damage(value : int):
 func _on_dash_timer_timeout() -> void:
 	justDashed = false # Replace with function body.
 
-
 func _on_dash_time_timeout() -> void:
 	g = og
 	endDash = true
 	isDashing = false# Replace with function body.
 
-
-func _on_sword_body_entered(body: Node2D) -> void:
-	if body.has_method("takeDamage"):
-		body.takeDamage(damageValue) # Replace with function body.
-
-
-func _on_sword_timer_timeout() -> void:
-	$Sword.set_collision_layer_value(1, false)
-	$Sword.set_collision_mask_value(2, false)
-	
-	$SwordAnim.visible = false
-	if $SwordAnim.is_playing():
-		$SwordAnim.stop() # Replace with function body.
-
-
 func _on_flip(_dir: Vector2) -> void:
 	scale.x = -scale.x # Replace with function body.
 
-
-func _on_sword_area_entered(area: Area2D) -> void:
-	if area.has_method("destroyBullet"):
-		print(area)
-		area.destroyBullet() # Replace with function body.
-
-
 func _on_damage_timer_timeout() -> void:
-	$CollisionShape2D/AnimatedSprite2D.visible = not $CollisionShape2D/AnimatedSprite2D.visible
-	if not $CollisionShape2D/AnimatedSprite2D.visible:
+	$AnimatedSprite2D.visible = not $AnimatedSprite2D.visible
+	if not $AnimatedSprite2D.visible:
 		blinkCount -= 1
 		print(blinkCount, "	<-bl		h->	", health)
 	
@@ -196,7 +159,7 @@ func _on_damage_timer_timeout() -> void:
 			gameOver()
 		else:
 			blinkCount = blinks
-			$CollisionShape2D/AnimatedSprite2D.visible = true
+			$AnimatedSprite2D.visible = true
 			$DamageTimer.stop()
 			set_collision_layer_value(1, true)
 

@@ -13,7 +13,6 @@ size = Vector2(9.95827, 531.474)
 size = Vector2(16.1453, 22.9351)
 
 [node name="Enemy1" type="CharacterBody2D"]
-scale = Vector2(6.03892, 4.88335)
 collision_layer = 2
 collision_mask = 7
 script = ExtResource("1_3qghp")
@@ -36,7 +35,6 @@ autostart = true
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-visible = false
 position = Vector2(-0.289788, 0)
 shape = SubResource("RectangleShape2D_nsxty")
 

@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cqiyvpwmi2l68" path="res://src/player/player.tscn" id="1_1ti74"]
 [ext_resource type="Script" path="res://src/debug/main.gd" id="1_62tce"]
 [ext_resource type="Texture2D" uid="uid://0amxgk4kuxnr" path="res://asstes/visuals/stolen/ENVIRONMENT/background/skyline-a.png" id="1_ee31t"]
-[ext_resource type="PackedScene" uid="uid://b16m7yxcmaokp" path="res://src/env/floor.tscn" id="3_citqy"]
+[ext_resource type="PackedScene" uid="uid://b16m7yxcmaokp" path="res://src/env/floors/floor.tscn" id="3_citqy"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_0i5n1"]
 scenes/1/scene = ExtResource("3_citqy")

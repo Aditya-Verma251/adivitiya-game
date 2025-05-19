@@ -22,9 +22,12 @@ GlobalVariables="*res://src/globals/global_variables.gd"
 InstantQuit="*res://src/globals/instant_quit.gd"
 SignalManager="*res://src/globals/signal_manager.gd"
 SceneHolder="*res://src/globals/scene_holder.gd"
+SpawnedObjectContainer="*res://src/globals/spawned_object_container.tscn"
 
 [display]
 
+window/size/viewport_width=1280
+window/size/viewport_height=720
 window/size/mode=2
 mouse_cursor/custom_image="res://asstes/visuals/bwehhhh/cursor.png"
 

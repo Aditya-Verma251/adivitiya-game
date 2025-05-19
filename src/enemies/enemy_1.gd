@@ -15,6 +15,8 @@ func _ready() -> void:
 	$TimePeriod.one_shot = false
 	if time > 0.05:
 		$TimePeriod.wait_time = time
+	elif time == 0:
+		printerr("timer not initialised in enemy ", self, " ", self.name, " at ", self.position)
 		
 	if moveRight:
 		speed = -speed

@@ -1,0 +1,20 @@
+[gd_resource type="TileSet" load_steps=8 format=3 uid="uid://ls170q5a7fju"]
+
+[ext_resource type="PackedScene" uid="uid://dc0ibj33hrhma" path="res://src/env/platforming/spike.tscn" id="1_gvkls"]
+[ext_resource type="PackedScene" uid="uid://cda7816u22k73" path="res://src/env/platforming/platforms/left_platform.tscn" id="2_vfs1u"]
+[ext_resource type="PackedScene" uid="uid://b7aawwgpvsi1f" path="res://src/env/platforming/platforms/middle_left_platform.tscn" id="3_utqus"]
+[ext_resource type="PackedScene" uid="uid://dcntm34o8em30" path="res://src/env/platforming/platforms/middle_right_platform.tscn" id="4_n8dac"]
+[ext_resource type="PackedScene" uid="uid://6elbg3fd036w" path="res://src/env/platforming/platforms/right_platform.tscn" id="5_k137w"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_oq2rg"]
+scenes/1/scene = ExtResource("1_gvkls")
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_okb3h"]
+scenes/1/scene = ExtResource("2_vfs1u")
+scenes/2/scene = ExtResource("3_utqus")
+scenes/3/scene = ExtResource("4_n8dac")
+scenes/4/scene = ExtResource("5_k137w")
+
+[resource]
+sources/1 = SubResource("TileSetScenesCollectionSource_oq2rg")
+sources/3 = SubResource("TileSetScenesCollectionSource_okb3h")

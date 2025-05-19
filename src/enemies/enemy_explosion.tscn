@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://dkwok76eo8dvf"]
 
-[ext_resource type="Texture2D" uid="uid://8tg0kenw37kv" path="res://asstes/SPRITES/misc/enemy-explosion/enemy-explosion-1.png" id="1_7u6ax"]
-[ext_resource type="Texture2D" uid="uid://do063k45aiv6q" path="res://asstes/SPRITES/misc/enemy-explosion/enemy-explosion-2.png" id="2_rc1ew"]
-[ext_resource type="Texture2D" uid="uid://btcdtkg66dqwx" path="res://asstes/SPRITES/misc/enemy-explosion/enemy-explosion-3.png" id="3_ncv15"]
-[ext_resource type="Texture2D" uid="uid://dbh8abxyq0icw" path="res://asstes/SPRITES/misc/enemy-explosion/enemy-explosion-4.png" id="4_ntjtb"]
-[ext_resource type="Texture2D" uid="uid://ch8wapwpxdltc" path="res://asstes/SPRITES/misc/enemy-explosion/enemy-explosion-5.png" id="5_0odxf"]
-[ext_resource type="Texture2D" uid="uid://dpkkdbf6yebuk" path="res://asstes/SPRITES/misc/enemy-explosion/enemy-explosion-6.png" id="6_ajuj2"]
+[ext_resource type="Texture2D" uid="uid://8tg0kenw37kv" path="res://asstes/visuals/stolen/SPRITES/misc/enemy-explosion/enemy-explosion-1.png" id="1_7u6ax"]
+[ext_resource type="Texture2D" uid="uid://do063k45aiv6q" path="res://asstes/visuals/stolen/SPRITES/misc/enemy-explosion/enemy-explosion-2.png" id="2_rc1ew"]
+[ext_resource type="Texture2D" uid="uid://btcdtkg66dqwx" path="res://asstes/visuals/stolen/SPRITES/misc/enemy-explosion/enemy-explosion-3.png" id="3_ncv15"]
+[ext_resource type="Texture2D" uid="uid://dbh8abxyq0icw" path="res://asstes/visuals/stolen/SPRITES/misc/enemy-explosion/enemy-explosion-4.png" id="4_ntjtb"]
+[ext_resource type="Texture2D" uid="uid://ch8wapwpxdltc" path="res://asstes/visuals/stolen/SPRITES/misc/enemy-explosion/enemy-explosion-5.png" id="5_0odxf"]
+[ext_resource type="Texture2D" uid="uid://dpkkdbf6yebuk" path="res://asstes/visuals/stolen/SPRITES/misc/enemy-explosion/enemy-explosion-6.png" id="6_ajuj2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ixl3a"]
 animations = [{
@@ -35,5 +35,3 @@ animations = [{
 
 [node name="EnemyExplosion" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_ixl3a")
-frame = 5
-frame_progress = 1.0

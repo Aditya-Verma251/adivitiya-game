@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bqx2tuyp13w0c"]
+[gd_scene load_steps=9 format=3 uid="uid://bqx2tuyp13w0c"]
 
-[ext_resource type="Texture2D" uid="uid://b1yebcyrrax44" path="res://asstes/ENVIRONMENT/props/banner-sushi/banner-sushi-1.png" id="1_be4n7"]
+[ext_resource type="Texture2D" uid="uid://b1yebcyrrax44" path="res://asstes/visuals/stolen/ENVIRONMENT/props/banner-sushi/banner-sushi-1.png" id="1_be4n7"]
 [ext_resource type="Script" path="res://src/debug/long.gd" id="1_x1oad"]
 [ext_resource type="PackedScene" uid="uid://cqiyvpwmi2l68" path="res://src/player/player.tscn" id="2_dvx1i"]
 [ext_resource type="PackedScene" uid="uid://bl4dsh3y14uoo" path="res://src/ui_gen/text_box.tscn" id="4_rdr3n"]
-[ext_resource type="PackedScene" uid="uid://dx4d58apuq1x0" path="res://src/env/level_end.tscn" id="4_w3k1v"]
+[ext_resource type="PackedScene" uid="uid://dx4d58apuq1x0" path="res://src/env/eventAreas/level_end.tscn" id="4_w3k1v"]
+[ext_resource type="Texture2D" uid="uid://0amxgk4kuxnr" path="res://asstes/visuals/stolen/ENVIRONMENT/background/skyline-a.png" id="6_5m1ri"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0568g"]
 size = Vector2(16969, 216)
@@ -14,6 +15,37 @@ size = Vector2(5736, 3401)
 
 [node name="long" type="Node2D"]
 script = ExtResource("1_x1oad")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
+scroll_base_scale = Vector2(0.7, 0.7)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
+position = Vector2(0, 1170)
+motion_mirroring = Vector2(3840, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayer"]
+scale = Vector2(12, 12)
+texture = ExtResource("6_5m1ri")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
+position = Vector2(0, 1170)
+motion_offset = Vector2(1536, 0)
+motion_mirroring = Vector2(3840, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayer2"]
+scale = Vector2(12, 12)
+texture = ExtResource("6_5m1ri")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
+position = Vector2(0, 1170)
+motion_offset = Vector2(3072, 0)
+motion_mirroring = Vector2(3840, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayer3"]
+scale = Vector2(12, 12)
+texture = ExtResource("6_5m1ri")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(0, 9000)
@@ -30,6 +62,7 @@ region_rect = Rect2(-1000, 1000, 100, 100)
 shape = SubResource("RectangleShape2D_0568g")
 
 [node name="Player" parent="." instance=ExtResource("2_dvx1i")]
+position = Vector2(-11, 1582)
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(3882, 700)
@@ -42,6 +75,18 @@ shape = SubResource("RectangleShape2D_dxe81")
 
 [node name="LevelEnd" parent="." instance=ExtResource("4_w3k1v")]
 position = Vector2(-4503, 1727)
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(-1000, 500, 1000, 500)
+width = 50.0
+
+[node name="Line2D2" type="Line2D" parent="."]
+points = PackedVector2Array(-700, 700, -700, 2000)
+width = 50.0
+
+[node name="Line2D3" type="Line2D" parent="."]
+points = PackedVector2Array(700, 700, 700, 2000)
+width = 50.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

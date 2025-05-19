@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bq0rdkpcq2em6"]
 
-[ext_resource type="Script" path="res://src/env/deathplane.gd" id="1_qj0dh"]
+[ext_resource type="Script" path="res://src/env/eventAreas/deathplane.gd" id="1_qj0dh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vgamm"]
 

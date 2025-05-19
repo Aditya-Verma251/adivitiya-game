@@ -2,7 +2,7 @@ extends Node2D
 
 var player
 var triggered = GlobalVariables.isTriggered
-var opos = Vector2(-1168, 304)
+@export var opos : Node2D
 
 func glitchCutscene() -> void:
 	pass
@@ -15,7 +15,7 @@ func _ready() -> void:
 	if CheckPointHolder.exists:
 		p.position = CheckPointHolder.getCheckpoint()
 	else:
-		p.position = opos
+		p.position = opos.position
 	
 	add_child(p)
 	

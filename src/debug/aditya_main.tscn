@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b33rk4lil18kc"]
+[gd_scene load_steps=6 format=3 uid="uid://b33rk4lil18kc"]
 
-[ext_resource type="PackedScene" uid="uid://b16m7yxcmaokp" path="res://src/env/floor.tscn" id="1_occb1"]
+[ext_resource type="PackedScene" uid="uid://b16m7yxcmaokp" path="res://src/env/floors/floor.tscn" id="1_occb1"]
 [ext_resource type="PackedScene" uid="uid://cqiyvpwmi2l68" path="res://src/player/player.tscn" id="2_qfelm"]
 [ext_resource type="PackedScene" uid="uid://cl23mivb2a63y" path="res://src/enemies/enemy_1.tscn" id="3_8t142"]
 [ext_resource type="PackedScene" uid="uid://gmid67ebwr3m" path="res://src/enemies/enemy_2.tscn" id="4_v5rc5"]
+[ext_resource type="PackedScene" uid="uid://dc0ibj33hrhma" path="res://src/env/platforming/spike.tscn" id="5_hujes"]
 
 [node name="AdityaMain" type="Node2D"]
 
@@ -31,3 +32,9 @@ health = 6
 [node name="enemy2" parent="." instance=ExtResource("4_v5rc5")]
 position = Vector2(-8274, -1667)
 scale = Vector2(3.03892, 2.45741)
+
+[node name="Spike" parent="." instance=ExtResource("5_hujes")]
+position = Vector2(-658, 178)
+
+[node name="Floor2" parent="." instance=ExtResource("1_occb1")]
+position = Vector2(-580, 181)
